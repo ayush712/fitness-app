@@ -22,7 +22,7 @@ class SignUpSignInRedirection extends StatelessWidget {
               getInfoTextStyle(Provider.of<ThemeModel>(context).currentTheme),
         ),
         SizedBox(
-          width: 2.0,
+          width: 8.0,
         ),
         GestureDetector(
             child: Text(

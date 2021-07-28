@@ -75,6 +75,7 @@ class SignIn extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ButtonWrapper(
+                            buttonType: ButtonType.OutlinedButton,
                             onPressed: () {},
                             title: AppLocalizations.of(context)!.signIn),
                         SizedBox(

@@ -46,13 +46,26 @@ ThemeData lightTheme = ThemeData(
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
-          LightThemeVaribles.kButtonBackgroundColor),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(LightThemeVaribles.kButtonTextColor),
+          LightThemeVaribles.kTextButtonBackgroundColor),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          LightThemeVaribles.kTextButtonTextColor),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
-          side: BorderSide(color: LightThemeVaribles.kButtonBackgroundColor),
+        ),
+      ),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(
+          LightThemeVaribles.kOutlinedButtonTextColor),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kFieldBorderRadius),
+          side: BorderSide(
+            color: LightThemeVaribles.kOutlinedButtonBorderColor,
+          ),
         ),
       ),
     ),
@@ -61,57 +74,72 @@ ThemeData lightTheme = ThemeData(
 
 ThemeData darkTheme = ThemeData(
   fontFamily: 'Poppins',
-  primaryColor: LightThemeVaribles.kThemeColor,
-  focusColor: LightThemeVaribles.kTextFieldTextColor,
-  accentColor: LightThemeVaribles.kPrimaryColor,
-  secondaryHeaderColor: LightThemeVaribles.kTertiaryColor,
-  disabledColor: LightThemeVaribles.kQuaternaryColor,
-  dividerColor: LightThemeVaribles.kDividerColor,
-  scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
+  primaryColor: DarkThemeVaribles.kThemeColor,
+  focusColor: DarkThemeVaribles.kTextFieldTextColor,
+  accentColor: DarkThemeVaribles.kPrimaryColor,
+  secondaryHeaderColor: DarkThemeVaribles.kTertiaryColor,
+  disabledColor: DarkThemeVaribles.kQuaternaryColor,
+  dividerColor: DarkThemeVaribles.kDividerColor,
+  scaffoldBackgroundColor: DarkThemeVaribles.kAppBackgroundColor,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
-      backgroundColor: LightThemeVaribles.kTextFieldErrorBackgroundColor,
+      backgroundColor: DarkThemeVaribles.kTextFieldErrorBackgroundColor,
     ),
     helperStyle: TextStyle(
-      color: LightThemeVaribles.kTextFieldPlaceholderColor,
+      color: DarkThemeVaribles.kTextFieldPlaceholderColor,
     ),
     filled: true,
-    fillColor: LightThemeVaribles.kTextFieldBackgroundColor,
+    fillColor: DarkThemeVaribles.kTextFieldBackgroundColor,
     border: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(kFieldBorderRadius),
         ),
         borderSide:
-            BorderSide(color: LightThemeVaribles.kTextFieldBackgroundColor)),
+            BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor)),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(kFieldBorderRadius)),
       borderSide:
-          BorderSide(color: LightThemeVaribles.kTextFieldBackgroundColor),
+          BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor),
     ),
     enabledBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(kFieldBorderRadius)),
+      borderRadius: BorderRadius.all(
+        Radius.circular(kFieldBorderRadius),
+      ),
       borderSide:
-          BorderSide(color: LightThemeVaribles.kTextFieldBackgroundColor),
+          BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor),
     ),
   ),
-  appBarTheme: AppBarTheme(color: LightThemeVaribles.kAppBarBackgroundColor),
+  appBarTheme: AppBarTheme(color: DarkThemeVaribles.kAppBarBackgroundColor),
   textTheme: TextTheme(
     subtitle1: TextStyle(
-        color: LightThemeVaribles.kTextFieldTextColor,
+        color: DarkThemeVaribles.kTextFieldTextColor,
         fontSize: kTextFieldFontSize),
   ),
   textSelectionTheme:
-      TextSelectionThemeData(cursorColor: LightThemeVaribles.kPrimaryColor),
+      TextSelectionThemeData(cursorColor: DarkThemeVaribles.kPrimaryColor),
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
-          LightThemeVaribles.kButtonBackgroundColor),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(LightThemeVaribles.kButtonTextColor),
+          DarkThemeVaribles.kTextButtonBackgroundColor),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          DarkThemeVaribles.kTextButtonTextColor),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
-          side: BorderSide(color: LightThemeVaribles.kButtonBackgroundColor),
+        ),
+      ),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(
+          DarkThemeVaribles.kOutlinedButtonTextColor),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kFieldBorderRadius),
+          side: BorderSide(
+            color: DarkThemeVaribles.kOutlinedButtonBorderColor,
+          ),
         ),
       ),
     ),

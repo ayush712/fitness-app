@@ -22,6 +22,7 @@ class TextFieldWrapper extends StatelessWidget {
       keyboardType: keyboardType,
       onChanged: (value) => onChanged(value),
       autofocus: autofocus,
+      textInputAction: TextInputAction.next,
       decoration: kTextFieldInputDecoration.copyWith(hintText: placeholder),
     );
   }

@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 
+const double kXSmallFontSize = 15.0;
 const double kSmallFontSize = 20.0;
 const double kMediumFontSize = 24.0;
 const double kLargeFontSize = 28.0;
 
-const double kFieldBorderRadius = 12.0;
+const double kFieldBorderRadius = 16.0;
+const double kFieldVerticlePadding = 18.0;
+const double kFieldHorizontalPadding = 20.0;
+
 const InputDecoration kTextFieldInputDecoration = InputDecoration(
-  contentPadding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+  contentPadding: EdgeInsets.symmetric(
+      vertical: kFieldVerticlePadding, horizontal: kFieldHorizontalPadding),
 );
-const double kTextFieldFontSize = kMediumFontSize;
-const double kButtonFontSize = kMediumFontSize;
+const double kTextFieldFontSize = kSmallFontSize;
+const double kButtonFontSize = kSmallFontSize;
 
 const TextStyle kButtonTextStyle =
     TextStyle(fontSize: kButtonFontSize, fontWeight: FontWeight.w500);
 final ButtonStyle kButtonStyle = TextButton.styleFrom(
-  padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+  padding: EdgeInsets.symmetric(
+      vertical: kFieldVerticlePadding, horizontal: kFieldHorizontalPadding),
 );
 
 getHeaderStyle(ThemeData theme) {
@@ -30,13 +36,13 @@ getSubHeaderStyle(ThemeData theme) {
 }
 
 getLinkStyle(ThemeData theme) {
-  return TextStyle(color: theme.primaryColor, fontSize: kSmallFontSize);
+  return TextStyle(color: theme.primaryColor, fontSize: kXSmallFontSize);
 }
 
 getInfoTextStyle(ThemeData theme) {
   return TextStyle(
     color: theme.disabledColor,
-    fontSize: kSmallFontSize,
+    fontSize: kXSmallFontSize,
   );
 }
 
@@ -65,8 +71,12 @@ class LightThemeVaribles {
 
   static final Color kDividerColor = Color(0xFFE3E3E3);
   static final kAppBarBackgroundColor = kContrastToDarkColor;
-  static final Color kButtonBackgroundColor = kThemeColor;
-  static final Color kButtonTextColor = kContrastToDarkColor;
+
+  static final Color kTextButtonBackgroundColor = kThemeColor;
+  static final Color kTextButtonTextColor = kContrastToDarkColor;
+
+  static final Color kOutlinedButtonTextColor = kThemeColor;
+  static final Color kOutlinedButtonBorderColor = kThemeColor;
 }
 
 class DarkThemeVaribles {
@@ -87,6 +97,10 @@ class DarkThemeVaribles {
 
   static final Color kDividerColor = Color(0xFFE3E3E3);
   static final kAppBarBackgroundColor = kContrastToDarkColor;
-  static final Color kButtonBackgroundColor = kThemeColor;
-  static final Color kButtonTextColor = kContrastToDarkColor;
+
+  static final Color kTextButtonBackgroundColor = kThemeColor;
+  static final Color kTextButtonTextColor = kContrastToDarkColor;
+
+  static final Color kOutlinedButtonTextColor = kThemeColor;
+  static final Color kOutlinedButtonBorderColor = kThemeColor;
 }
