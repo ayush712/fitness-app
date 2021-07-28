@@ -67,29 +67,31 @@ getDividerTextStyle(ThemeData theme) {
 }
 
 class LightThemeVaribles {
-  static final Color kPrimaryColor = Color(0xFF000000);
-  static final Color kSecondaryColor = Color(0xFF1D3A5B);
-  static final Color kTertiaryColor = Color(0xFF655F77);
-  static final Color kQuaternaryColor = Color(0xFF949494);
-  static final Color kContrastToDarkColor = Color(0xFFFFFFFF);
+  static final Color kPrimaryTextColor = Color(0xFF000000);
+  static final Color kSecondaryTextColor = Color(0xFF1D3A5B);
+  static final Color kTertiaryTextColor = Color(0xFF655F77);
+  static final Color kQuaternaryTextColor = Color(0xFF949494);
+  static final Color kContrastTextColorToDarkColor = Color(0xFFFFFFFF);
   static final Color kThemeColor = Color(0xFF38B398);
   static final Color kAppBackgroundColor = Color(0xFFFFFFFF);
-  static final Color kHeadingTextColor = kPrimaryColor;
-  static final Color kSubHeadingTextColor = kTertiaryColor;
+  static final Color kHeadingTextColor = kPrimaryTextColor;
+  static final Color kSubHeadingTextColor = kTertiaryTextColor;
 
-  static final Color kTextFieldTextColor = kSecondaryColor;
-  static final Color kTextFieldPlaceholderColor = kQuaternaryColor;
+  static final Color kTextFieldTextColor = kSecondaryTextColor;
+  static final Color kTextFieldPlaceholderColor = kQuaternaryTextColor;
   static final Color kTextFieldBackgroundColor = Color(0xFFF8F8F8);
   static final Color kTextFieldErrorBackgroundColor = Colors.red.shade200;
 
   static final Color kDividerColor = Color(0xFFE3E3E3);
-  static final kAppBarBackgroundColor = kContrastToDarkColor;
+  static final kAppBarBackgroundColor = kContrastTextColorToDarkColor;
 
   static final Color kTextButtonBackgroundColor = kThemeColor;
-  static final Color kTextButtonTextColor = kContrastToDarkColor;
+  static final Color kTextButtonTextColor = kContrastTextColorToDarkColor;
+  static final Color kTextButtonTapOverlayColor = Color(0x38b39880);
 
   static final Color kOutlinedButtonTextColor = kThemeColor;
   static final Color kOutlinedButtonBorderColor = kThemeColor;
+  static final Color kOutlinedButtonTapOverlayColor = Color(0x1138B398);
 }
 
 class DarkThemeVaribles {
@@ -113,7 +115,9 @@ class DarkThemeVaribles {
 
   static final Color kTextButtonBackgroundColor = kThemeColor;
   static final Color kTextButtonTextColor = kContrastToDarkColor;
+  static final Color kTextButtonTapOverlayColor = Color(0x38b39880);
 
   static final Color kOutlinedButtonTextColor = kThemeColor;
   static final Color kOutlinedButtonBorderColor = kThemeColor;
+  static final Color kOutlinedButtonTapOverlayColor = Color(0x1138B398);
 }

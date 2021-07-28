@@ -5,9 +5,9 @@ ThemeData lightTheme = ThemeData(
   fontFamily: kFontFamily,
   primaryColor: LightThemeVaribles.kThemeColor,
   focusColor: LightThemeVaribles.kTextFieldTextColor,
-  accentColor: LightThemeVaribles.kPrimaryColor,
-  secondaryHeaderColor: LightThemeVaribles.kTertiaryColor,
-  disabledColor: LightThemeVaribles.kQuaternaryColor,
+  accentColor: LightThemeVaribles.kPrimaryTextColor,
+  secondaryHeaderColor: LightThemeVaribles.kTertiaryTextColor,
+  disabledColor: LightThemeVaribles.kQuaternaryTextColor,
   dividerColor: LightThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
   inputDecorationTheme: InputDecorationTheme(
@@ -42,13 +42,20 @@ ThemeData lightTheme = ThemeData(
         fontSize: kTextFieldFontSize),
   ),
   textSelectionTheme:
-      TextSelectionThemeData(cursorColor: LightThemeVaribles.kPrimaryColor),
+      TextSelectionThemeData(cursorColor: LightThemeVaribles.kPrimaryTextColor),
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
           LightThemeVaribles.kTextButtonBackgroundColor),
       foregroundColor: MaterialStateProperty.all<Color>(
           LightThemeVaribles.kTextButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? LightThemeVaribles.kTextButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
@@ -62,6 +69,13 @@ ThemeData lightTheme = ThemeData(
           LightThemeVaribles.kTextButtonBackgroundColor),
       foregroundColor: MaterialStateProperty.all<Color>(
           LightThemeVaribles.kTextButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? LightThemeVaribles.kTextButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
@@ -73,6 +87,13 @@ ThemeData lightTheme = ThemeData(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.all<Color>(
           LightThemeVaribles.kOutlinedButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? LightThemeVaribles.kOutlinedButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
@@ -136,6 +157,13 @@ ThemeData darkTheme = ThemeData(
           DarkThemeVaribles.kTextButtonBackgroundColor),
       foregroundColor: MaterialStateProperty.all<Color>(
           DarkThemeVaribles.kTextButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? DarkThemeVaribles.kTextButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
@@ -149,6 +177,13 @@ ThemeData darkTheme = ThemeData(
           DarkThemeVaribles.kTextButtonBackgroundColor),
       foregroundColor: MaterialStateProperty.all<Color>(
           DarkThemeVaribles.kTextButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? DarkThemeVaribles.kTextButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
@@ -160,6 +195,13 @@ ThemeData darkTheme = ThemeData(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.all<Color>(
           DarkThemeVaribles.kOutlinedButtonTextColor),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) {
+          return states.contains(MaterialState.pressed)
+              ? DarkThemeVaribles.kOutlinedButtonTapOverlayColor
+              : null;
+        },
+      ),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(kFieldBorderRadius),
