@@ -1,14 +1,14 @@
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:flutter/material.dart';
 
-class FETextField extends StatelessWidget {
+class TextFieldWrapper extends StatelessWidget {
   final String placeholder;
   final Function onChanged;
   final TextInputType keyboardType;
   final bool obscureText;
   final String obscuringCharacter = '*';
   final bool autofocus;
-  FETextField(
+  TextFieldWrapper(
       {required this.placeholder,
       required this.onChanged,
       this.obscureText = false,

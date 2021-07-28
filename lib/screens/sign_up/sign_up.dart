@@ -1,7 +1,7 @@
 import 'package:fithics_mobile/screens/sign_in/sign_in.dart';
-import 'package:fithics_mobile/shared/components/fe_button/fe_button.dart';
-import 'package:fithics_mobile/shared/components/fe_text_field/fe_text_field.dart';
+import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
 import 'package:fithics_mobile/shared/components/signup_signin_redirection.dart/signup_signin_redirection.dart';
+import 'package:fithics_mobile/shared/components/text_field_wrapper/text_field_wrapper.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +28,7 @@ class SignUp extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: [
-                    Image.network(
-                        'https://media.istockphoto.com/vectors/woman-with-laptop-sitting-in-nature-and-leaves-concept-illustration-vector-id1139913278?k=6&m=1139913278&s=612x612&w=0&h=vDks140zgZAaCDrxSW0C4IabyHQI7aM8uw0MfM7gMrs='),
+                    Image.asset('assets/images/sign_up.jpeg'),
                     SizedBox(
                       height: kSpaceBetweenTwoFields,
                     ),
@@ -49,7 +48,7 @@ class SignUp extends StatelessWidget {
                     SizedBox(
                       height: kSpaceBetweenTwoFields * 2,
                     ),
-                    FETextField(
+                    TextFieldWrapper(
                       placeholder: AppLocalizations.of(context)!.name,
                       onChanged: (value) {
                         //email = value;
@@ -60,7 +59,7 @@ class SignUp extends StatelessWidget {
                     SizedBox(
                       height: kSpaceBetweenTwoFields,
                     ),
-                    FETextField(
+                    TextFieldWrapper(
                       placeholder: AppLocalizations.of(context)!.email,
                       onChanged: (value) {
                         //email = value;
@@ -70,7 +69,7 @@ class SignUp extends StatelessWidget {
                     SizedBox(
                       height: kSpaceBetweenTwoFields,
                     ),
-                    FETextField(
+                    TextFieldWrapper(
                       placeholder: AppLocalizations.of(context)!.password,
                       obscureText: true,
                       onChanged: (value) {
@@ -84,7 +83,7 @@ class SignUp extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        FEButton(
+                        ButtonWrapper(
                             onPressed: () => {},
                             title: AppLocalizations.of(context)!.createAccount),
                         SizedBox(
