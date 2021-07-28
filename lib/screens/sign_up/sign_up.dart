@@ -84,6 +84,7 @@ class SignUp extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ButtonWrapper(
+                            buttonType: ButtonType.ElevatedButton,
                             onPressed: () => {},
                             title: AppLocalizations.of(context)!.createAccount),
                         SizedBox(

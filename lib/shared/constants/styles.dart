@@ -9,6 +9,8 @@ const double kFieldBorderRadius = 16.0;
 const double kFieldVerticlePadding = 18.0;
 const double kFieldHorizontalPadding = 20.0;
 
+const String kFontFamily = 'Poppins';
+
 const InputDecoration kTextFieldInputDecoration = InputDecoration(
   contentPadding: EdgeInsets.symmetric(
       vertical: kFieldVerticlePadding, horizontal: kFieldHorizontalPadding),
@@ -18,9 +20,20 @@ const double kButtonFontSize = kSmallFontSize;
 
 const TextStyle kButtonTextStyle =
     TextStyle(fontSize: kButtonFontSize, fontWeight: FontWeight.w500);
-final ButtonStyle kButtonStyle = TextButton.styleFrom(
-  padding: EdgeInsets.symmetric(
-      vertical: kFieldVerticlePadding, horizontal: kFieldHorizontalPadding),
+
+const EdgeInsets kButtonPaddings = EdgeInsets.symmetric(
+  vertical: kFieldVerticlePadding,
+  horizontal: kFieldHorizontalPadding,
+);
+final ButtonStyle kTextButtonStyle = TextButton.styleFrom(
+  padding: kButtonPaddings,
+);
+final ButtonStyle kElevatedButtonStyle = ElevatedButton.styleFrom(
+  padding: kButtonPaddings,
+);
+
+final ButtonStyle kOutlinedButtonStyle = OutlinedButton.styleFrom(
+  padding: kButtonPaddings,
 );
 
 getHeaderStyle(ThemeData theme) {

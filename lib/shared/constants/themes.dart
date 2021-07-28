@@ -2,7 +2,7 @@ import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData(
-  fontFamily: 'Poppins',
+  fontFamily: kFontFamily,
   primaryColor: LightThemeVaribles.kThemeColor,
   focusColor: LightThemeVaribles.kTextFieldTextColor,
   accentColor: LightThemeVaribles.kPrimaryColor,
@@ -56,6 +56,19 @@ ThemeData lightTheme = ThemeData(
       ),
     ),
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(
+          LightThemeVaribles.kTextButtonBackgroundColor),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          LightThemeVaribles.kTextButtonTextColor),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kFieldBorderRadius),
+        ),
+      ),
+    ),
+  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.all<Color>(
@@ -73,7 +86,7 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
-  fontFamily: 'Poppins',
+  fontFamily: kFontFamily,
   primaryColor: DarkThemeVaribles.kThemeColor,
   focusColor: DarkThemeVaribles.kTextFieldTextColor,
   accentColor: DarkThemeVaribles.kPrimaryColor,
@@ -118,6 +131,19 @@ ThemeData darkTheme = ThemeData(
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: DarkThemeVaribles.kPrimaryColor),
   textButtonTheme: TextButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(
+          DarkThemeVaribles.kTextButtonBackgroundColor),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          DarkThemeVaribles.kTextButtonTextColor),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kFieldBorderRadius),
+        ),
+      ),
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
           DarkThemeVaribles.kTextButtonBackgroundColor),

@@ -1,7 +1,7 @@
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:flutter/material.dart';
 
-enum ButtonType { OutlinedButton, TextButton }
+enum ButtonType { OutlinedButton, TextButton, ElevatedButton }
 
 class ButtonWrapper extends StatelessWidget {
   final String title;
@@ -15,32 +15,46 @@ class ButtonWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (buttonType) {
       case ButtonType.TextButton:
-        return TextButton(
-          onPressed: onPressed,
-          style: kButtonStyle,
-          child: Text(
-            title,
-            style: kButtonTextStyle,
-          ),
-        );
+        return textButtonWrapper();
       case ButtonType.OutlinedButton:
-        return OutlinedButton(
-          onPressed: onPressed,
-          style: kButtonStyle,
-          child: Text(
-            title,
-            style: kButtonTextStyle,
-          ),
-        );
+        return outlinedButtonWrapper();
+      case ButtonType.ElevatedButton:
+        return elevatedButtonWrapper();
       default:
-        return TextButton(
-          onPressed: onPressed,
-          style: kButtonStyle,
-          child: Text(
-            title,
-            style: kButtonTextStyle,
-          ),
-        );
+        return textButtonWrapper();
     }
+  }
+
+  TextButton textButtonWrapper() {
+    return TextButton(
+      onPressed: onPressed,
+      style: kTextButtonStyle,
+      child: Text(
+        title,
+        style: kButtonTextStyle,
+      ),
+    );
+  }
+
+  OutlinedButton outlinedButtonWrapper() {
+    return OutlinedButton(
+      onPressed: onPressed,
+      style: kOutlinedButtonStyle,
+      child: Text(
+        title,
+        style: kButtonTextStyle,
+      ),
+    );
+  }
+
+  ElevatedButton elevatedButtonWrapper() {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: kElevatedButtonStyle,
+      child: Text(
+        title,
+        style: kButtonTextStyle,
+      ),
+    );
   }
 }
