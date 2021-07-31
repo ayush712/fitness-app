@@ -9,101 +9,112 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //import 'package:modal_progress_hud/modal_progress_hud.dart';
-const double kSpaceBetweenTwoFields = 15.0;
-
 class SignUp extends StatelessWidget {
   static const String id = 'sign_up';
   final showSpinner = false;
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    String name = "";
+    String email = "";
+    String password = "";
+    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  children: [
-                    Image.asset('assets/images/sign_up.jpeg'),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields,
-                    ),
-                    Text(
-                      AppLocalizations.of(context)!.welcomeText,
-                      style: getHeaderStyle(
-                          Provider.of<ThemeModel>(context).currentTheme),
-                    ),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields,
-                    ),
-                    Text(
-                      AppLocalizations.of(context)!.signUp,
-                      style: getSubHeaderStyle(
-                          Provider.of<ThemeModel>(context).currentTheme),
-                    ),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields * 2,
-                    ),
-                    TextFieldWrapper(
-                      placeholder: AppLocalizations.of(context)!.name,
-                      onChanged: (value) {
-                        //email = value;
-                      },
-                      keyboardType: TextInputType.name,
-                      autofocus: true,
-                    ),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields,
-                    ),
-                    TextFieldWrapper(
-                      placeholder: AppLocalizations.of(context)!.email,
-                      onChanged: (value) {
-                        //email = value;
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields,
-                    ),
-                    TextFieldWrapper(
-                      placeholder: AppLocalizations.of(context)!.password,
-                      obscureText: true,
-                      onChanged: (value) {
-                        //email = value;
-                      },
-                      keyboardType: TextInputType.text,
-                    ),
-                    SizedBox(
-                      height: kSpaceBetweenTwoFields * 2,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        ButtonWrapper(
-                            buttonType: ButtonType.ElevatedButton,
-                            onPressed: () => {},
-                            title: AppLocalizations.of(context)!.createAccount),
-                        SizedBox(
-                          height: kSpaceBetweenTwoFields * 2,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: kSpaceBetweenTwoFields * 2),
-                  child: SignUpSignInRedirection(
-                    text: AppLocalizations.of(context)!.haveAccount,
-                    linkText: AppLocalizations.of(context)!.signIn,
-                    redirectToLink: SignIn.id,
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    children: [
+                      Image.asset('assets/images/sign_up.jpeg'),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields,
+                      ),
+                      Text(
+                        AppLocalizations.of(context)!.welcomeText,
+                        style: getHeaderStyle(
+                            Provider.of<ThemeModel>(context).currentTheme),
+                      ),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields,
+                      ),
+                      Text(
+                        AppLocalizations.of(context)!.signUp,
+                        style: getSubHeaderStyle(
+                            Provider.of<ThemeModel>(context).currentTheme),
+                      ),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields * 2,
+                      ),
+                      TextFieldWrapper(
+                        placeholder: AppLocalizations.of(context)!.name,
+                        onChanged: (value) {
+                          name = value;
+                        },
+                        keyboardType: TextInputType.name,
+                        autofocus: true,
+                      ),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields,
+                      ),
+                      TextFieldWrapper(
+                        placeholder: AppLocalizations.of(context)!.email,
+                        onChanged: (value) {
+                          email = value;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields,
+                      ),
+                      TextFieldWrapper(
+                        placeholder: AppLocalizations.of(context)!.password,
+                        obscureText: true,
+                        onChanged: (value) {
+                          password = value;
+                        },
+                        keyboardType: TextInputType.text,
+                      ),
+                      SizedBox(
+                        height: kSpaceBetweenTwoFields * 2,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ButtonWrapper(
+                              buttonType: ButtonType.ElevatedButton,
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  print(email);
+                                  print(password);
+                                  print(name);
+                                }
+                              },
+                              title:
+                                  AppLocalizations.of(context)!.createAccount),
+                          SizedBox(
+                            height: kSpaceBetweenTwoFields * 2,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        bottom: kSpaceBetweenTwoFields * 2),
+                    child: SignUpSignInRedirection(
+                      text: AppLocalizations.of(context)!.haveAccount,
+                      linkText: AppLocalizations.of(context)!.signIn,
+                      redirectToLink: SignIn.id,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),

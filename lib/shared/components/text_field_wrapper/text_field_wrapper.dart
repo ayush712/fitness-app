@@ -8,22 +8,24 @@ class TextFieldWrapper extends StatelessWidget {
   final bool obscureText;
   final String obscuringCharacter = '*';
   final bool autofocus;
+  final validator;
   TextFieldWrapper(
       {required this.placeholder,
       required this.onChanged,
+      this.validator,
       this.obscureText = false,
       this.keyboardType = TextInputType.text,
       this.autofocus = false});
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
-      obscuringCharacter: obscuringCharacter,
-      keyboardType: keyboardType,
-      onChanged: (value) => onChanged(value),
-      autofocus: autofocus,
-      textInputAction: TextInputAction.next,
-      decoration: kTextFieldInputDecoration.copyWith(hintText: placeholder),
-    );
+    return TextFormField(
+        obscureText: obscureText,
+        obscuringCharacter: obscuringCharacter,
+        keyboardType: keyboardType,
+        onChanged: (value) => onChanged(value),
+        autofocus: autofocus,
+        textInputAction: TextInputAction.next,
+        decoration: kTextFieldInputDecoration.copyWith(hintText: placeholder),
+        validator: (val) => validator?.call(val));
   }
 }

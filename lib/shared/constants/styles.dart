@@ -9,6 +9,8 @@ const double kFieldBorderRadius = 16.0;
 const double kFieldVerticlePadding = 18.0;
 const double kFieldHorizontalPadding = 20.0;
 
+const double kSpaceBetweenTwoFields = 15.0;
+
 const String kFontFamily = 'Poppins';
 
 const InputDecoration kTextFieldInputDecoration = InputDecoration(

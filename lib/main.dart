@@ -1,3 +1,4 @@
+import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/sign_in/sign_in.dart';
 import 'package:fithics_mobile/screens/sign_up/sign_up.dart';
 import 'package:fithics_mobile/shared/store/locale_model.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
+        ForgotPassword.id: (context) => ForgotPassword(),
         // RegistrationScreen.id: (context) => RegistrationScreen(),
         // ChatScreen.id: (context) => ChatScreen(),
       },
