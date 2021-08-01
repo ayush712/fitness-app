@@ -33,57 +33,62 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
-        child: Column(children: [
-          Expanded(
-            child: CarouselSlider(
-              items: getImageSliders(),
-              carouselController: _controller,
-              options: CarouselOptions(
-                  autoPlay: true,
-                  aspectRatio: 1.0,
-                  viewportFraction: 1,
-                  enlargeCenterPage: false,
-                  height: MediaQuery.of(context).size.height,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
-            ),
+      body: Column(children: [
+        Expanded(
+          child: CarouselSlider(
+            items: getImageSliders(),
+            carouselController: _controller,
+            options: CarouselOptions(
+                autoPlay: true,
+                aspectRatio: 1.0,
+                viewportFraction: 1,
+                enlargeCenterPage: false,
+                height: MediaQuery.of(context).size.height,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: getImageList().asMap().entries.map((entry) {
-              return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
-                child: Container(
-                  width: 12.0,
-                  height: 12.0,
-                  margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: (Theme.of(context).primaryColor)
-                          .withOpacity(_current == entry.key ? 1.0 : 0.4)),
-                ),
-              );
-            }).toList(),
-          ),
-          SizedBox(
-            height: kSpaceBetweenTwoFields * 2,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
+          child: Column(
             children: [
-              getButton(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: getImageList().asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(entry.key),
+                    child: Container(
+                      width: 12.0,
+                      height: 12.0,
+                      margin:
+                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: (Theme.of(context).primaryColor)
+                              .withOpacity(_current == entry.key ? 1.0 : 0.4)),
+                    ),
+                  );
+                }).toList(),
+              ),
               SizedBox(
                 height: kSpaceBetweenTwoFields * 2,
               ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  getButton(),
+                  SizedBox(
+                    height: kSpaceBetweenTwoFields * 2,
+                  ),
+                ],
+              ),
             ],
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 
@@ -109,29 +114,36 @@ class _SplashState extends State<Splash> {
   List<Widget> getImageSliders() {
     return getImageList()
         .map(
-          (item) => Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(item.imagePath),
-              SizedBox(
-                height: kSpaceBetweenTwoFields * 4,
-              ),
-              Text(
-                item.header,
-                textAlign: TextAlign.center,
-                style: getHeaderStyle(
-                    Provider.of<ThemeModel>(context).currentTheme),
-              ),
-              SizedBox(
-                height: kSpaceBetweenTwoFields,
-              ),
-              Text(
-                item.description,
-                textAlign: TextAlign.center,
-                style: getSubHeaderStyle(
-                    Provider.of<ThemeModel>(context).currentTheme),
-              ),
-            ],
+          (item) => Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: kSpaceBetweenTwoFields * 2,
+                ),
+                Image.asset(item.imagePath),
+                SizedBox(
+                  height: kSpaceBetweenTwoFields * 4,
+                ),
+                Text(
+                  item.header,
+                  textAlign: TextAlign.center,
+                  style: getHeaderStyle(
+                      Provider.of<ThemeModel>(context).currentTheme),
+                ),
+                SizedBox(
+                  height: kSpaceBetweenTwoFields,
+                ),
+                Text(
+                  item.description,
+                  textAlign: TextAlign.center,
+                  style: getSubHeaderStyle(
+                      Provider.of<ThemeModel>(context).currentTheme),
+                ),
+              ],
+            ),
           ),
         )
         .toList();
