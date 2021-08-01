@@ -23,5 +23,12 @@
   "nameMaxLengthError": "20 characters are enough for name field",
   "mobileRequiredError": "Mobile no. is required",
   "mobileRegexError": "You mobile number seems invalid",
-  "confirmPasswordError": "Passwords do not match"
+  "confirmPasswordError": "Passwords do not match",
+  "getStarted": "Get Started",
+  "dailyCalorieTargetsHeader": "Daily Calorie Targets",
+  "dailyCalorieTargetsDescription": "Set your target weight and select your monthly schedule and we’ll do the rest.",
+  "workoutProHeader": "Workout like a Pro",
+  "workoutProDescription": "Workout at home, gym or anywhere.",
+  "dietPlanHeader": "Diet Plan",
+  "dietPlanDescription": "We update our food database every min. to help you have your best diet plan."
 }

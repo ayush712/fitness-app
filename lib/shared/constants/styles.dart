@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 const double kXSmallFontSize = 15.0;
-const double kSmallFontSize = 20.0;
-const double kMediumFontSize = 24.0;
+const double kSmallFontSize = 18.0;
+const double kMediumFontSize = 22.0;
 const double kLargeFontSize = 28.0;
 
 const double kFieldBorderRadius = 16.0;
@@ -47,7 +47,9 @@ getHeaderStyle(ThemeData theme) {
 
 getSubHeaderStyle(ThemeData theme) {
   return TextStyle(
-      color: theme.secondaryHeaderColor, fontSize: kMediumFontSize);
+    color: theme.secondaryHeaderColor,
+    fontSize: kMediumFontSize,
+  );
 }
 
 getLinkStyle(ThemeData theme) {

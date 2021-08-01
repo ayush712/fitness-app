@@ -1,6 +1,7 @@
 import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/sign_in/sign_in.dart';
 import 'package:fithics_mobile/screens/sign_up/sign_up.dart';
+import 'package:fithics_mobile/screens/splash/splash.dart';
 import 'package:fithics_mobile/shared/store/locale_model.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
 import 'package:flutter/material.dart';
@@ -28,11 +29,12 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: context.read<LocaleModel>().getSupportedLocales(),
-      initialRoute: SignIn.id,
+      initialRoute: Splash.id,
       routes: {
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
         ForgotPassword.id: (context) => ForgotPassword(),
+        Splash.id: (context) => Splash()
         // RegistrationScreen.id: (context) => RegistrationScreen(),
         // ChatScreen.id: (context) => ChatScreen(),
       },

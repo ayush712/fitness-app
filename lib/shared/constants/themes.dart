@@ -12,6 +12,7 @@ ThemeData lightTheme = ThemeData(
   disabledColor: LightThemeVaribles.kQuaternaryTextColor,
   dividerColor: LightThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
+  brightness: Brightness.light,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
       color: LightThemeVaribles.kTextFieldErrorColor,
@@ -128,6 +129,7 @@ ThemeData darkTheme = ThemeData(
   disabledColor: DarkThemeVaribles.kQuaternaryColor,
   dividerColor: DarkThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: DarkThemeVaribles.kAppBackgroundColor,
+  brightness: Brightness.dark,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
       color: LightThemeVaribles.kTextFieldErrorColor,
