@@ -1,3 +1,4 @@
+import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/sign_in/components/divider_text.dart';
 import 'package:fithics_mobile/screens/sign_up/sign_up.dart';
 import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
@@ -11,14 +12,20 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //import 'package:modal_progress_hud/modal_progress_hud.dart';
-class SignIn extends StatelessWidget {
+
+class SignIn extends StatefulWidget {
   static const String id = 'sign_in';
-  final showSpinner = false;
+  @override
+  _SignInState createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  bool showSpinner = false;
+  String email = "";
+  String password = "";
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    String email = "";
-    String password = "";
-    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -52,42 +59,18 @@ class SignIn extends StatelessWidget {
                       SizedBox(
                         height: kSpaceBetweenTwoFields * 2,
                       ),
-                      TextFieldWrapper(
-                        placeholder: AppLocalizations.of(context)!.email,
-                        validator: emailValidator(context),
-                        onChanged: (value) {
-                          email = value;
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        autofocus: true,
-                      ),
+                      getEmailField(),
                       SizedBox(
                         height: kSpaceBetweenTwoFields,
                       ),
-                      TextFieldWrapper(
-                        placeholder: AppLocalizations.of(context)!.password,
-                        validator: passwordValidator(context),
-                        obscureText: true,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                        keyboardType: TextInputType.text,
-                      ),
+                      getPasswordField(),
                       SizedBox(
                         height: kSpaceBetweenTwoFields * 2,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          ButtonWrapper(
-                              buttonType: ButtonType.OutlinedButton,
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(email);
-                                  print(password);
-                                }
-                              },
-                              title: AppLocalizations.of(context)!.signIn),
+                          getButton(),
                           SizedBox(
                             height: kSpaceBetweenTwoFields * 2,
                           ),
@@ -119,6 +102,58 @@ class SignIn extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  TextFieldWrapper getPasswordField() {
+    return TextFieldWrapper(
+      validator: requiredValidator(
+          AppLocalizations.of(context)!.passwordRequiredError),
+      obscureText: true,
+      onChanged: (value) {
+        password = value;
+      },
+      keyboardType: TextInputType.text,
+      decoration: kTextFieldInputDecoration.copyWith(
+        hintText: AppLocalizations.of(context)!.password,
+        suffix: GestureDetector(
+          child: Text(
+            AppLocalizations.of(context)!.forgot,
+            style: TextStyle(
+                color: Theme.of(context).primaryColorDark,
+                fontWeight: FontWeight.w600,
+                fontSize: kXSmallFontSize),
+          ),
+          onTap: () => {Navigator.pushNamed(context, ForgotPassword.id)},
+        ),
+      ),
+    );
+  }
+
+  TextFieldWrapper getEmailField() {
+    return TextFieldWrapper(
+      validator: emailValidator(context),
+      onChanged: (value) {
+        email = value;
+      },
+      keyboardType: TextInputType.emailAddress,
+      autofocus: true,
+      decoration: kTextFieldInputDecoration.copyWith(
+        hintText: AppLocalizations.of(context)!.email,
+      ),
+    );
+  }
+
+  ButtonWrapper getButton() {
+    return ButtonWrapper(
+      buttonType: ButtonType.OutlinedButton,
+      onPressed: () {
+        if (_formKey.currentState!.validate()) {
+          print(email);
+          print(password);
+        }
+      },
+      title: AppLocalizations.of(context)!.signIn,
     );
   }
 }

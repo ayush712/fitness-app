@@ -68,6 +68,10 @@ getDividerTextStyle(ThemeData theme) {
   );
 }
 
+getForgotPasswordTextColor(ThemeData theme) {
+  return theme.textTheme.subtitle1!.color;
+}
+
 class LightThemeVaribles {
   static final Color kPrimaryTextColor = Color(0xFF000000);
   static final Color kSecondaryTextColor = Color(0xFF1D3A5B);
@@ -83,6 +87,8 @@ class LightThemeVaribles {
   static final Color kTextFieldPlaceholderColor = kQuaternaryTextColor;
   static final Color kTextFieldBackgroundColor = Color(0xFFF8F8F8);
   static final Color kTextFieldErrorBackgroundColor = Colors.red.shade200;
+  static final Color kTextFieldErrorColor = Colors.red.shade400;
+  static final Color kTextFieldErrorBorderColor = Colors.red.shade200;
 
   static final Color kDividerColor = Color(0xFFE3E3E3);
   static final kAppBarBackgroundColor = kContrastTextColorToDarkColor;
@@ -111,6 +117,8 @@ class DarkThemeVaribles {
   static final Color kTextFieldPlaceholderColor = kQuaternaryColor;
   static final Color kTextFieldBackgroundColor = Color(0xFFF8F8F8);
   static final Color kTextFieldErrorBackgroundColor = Colors.red.shade200;
+  static final Color kTextFieldErrorColor = Colors.red.shade400;
+  static final Color kTextFieldErrorBorderColor = Colors.red.shade200;
 
   static final Color kDividerColor = Color(0xFFE3E3E3);
   static final kAppBarBackgroundColor = kContrastToDarkColor;

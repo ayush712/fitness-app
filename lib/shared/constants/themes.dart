@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 ThemeData lightTheme = ThemeData(
   fontFamily: kFontFamily,
   primaryColor: LightThemeVaribles.kThemeColor,
+  primaryColorDark: LightThemeVaribles.kTextFieldTextColor,
+  primaryColorLight: LightThemeVaribles.kTextFieldPlaceholderColor,
   focusColor: LightThemeVaribles.kTextFieldTextColor,
   accentColor: LightThemeVaribles.kPrimaryTextColor,
   secondaryHeaderColor: LightThemeVaribles.kTertiaryTextColor,
@@ -12,7 +14,16 @@ ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
-        backgroundColor: LightThemeVaribles.kTextFieldErrorBackgroundColor),
+      color: LightThemeVaribles.kTextFieldErrorColor,
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(kFieldBorderRadius),
+      ),
+      borderSide: BorderSide(
+        color: LightThemeVaribles.kTextFieldErrorBorderColor,
+      ),
+    ),
     helperStyle: TextStyle(
       color: LightThemeVaribles.kTextFieldPlaceholderColor,
     ),
@@ -109,6 +120,8 @@ ThemeData lightTheme = ThemeData(
 ThemeData darkTheme = ThemeData(
   fontFamily: kFontFamily,
   primaryColor: DarkThemeVaribles.kThemeColor,
+  primaryColorDark: LightThemeVaribles.kTextFieldTextColor,
+  primaryColorLight: LightThemeVaribles.kTextFieldPlaceholderColor,
   focusColor: DarkThemeVaribles.kTextFieldTextColor,
   accentColor: DarkThemeVaribles.kPrimaryColor,
   secondaryHeaderColor: DarkThemeVaribles.kTertiaryColor,
@@ -117,7 +130,15 @@ ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: DarkThemeVaribles.kAppBackgroundColor,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
-      backgroundColor: DarkThemeVaribles.kTextFieldErrorBackgroundColor,
+      color: LightThemeVaribles.kTextFieldErrorColor,
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(kFieldBorderRadius),
+      ),
+      borderSide: BorderSide(
+        color: LightThemeVaribles.kTextFieldErrorBorderColor,
+      ),
     ),
     helperStyle: TextStyle(
       color: DarkThemeVaribles.kTextFieldPlaceholderColor,

@@ -9,15 +9,22 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //import 'package:modal_progress_hud/modal_progress_hud.dart';
-class SignUp extends StatelessWidget {
+
+class SignUp extends StatefulWidget {
   static const String id = 'sign_up';
-  final showSpinner = false;
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  bool showSpinner = false;
+  String name = "";
+  String email = "";
+  String password = "";
+  bool passwordObscured = true;
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    String name = "";
-    String email = "";
-    String password = "";
-    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -51,52 +58,22 @@ class SignUp extends StatelessWidget {
                       SizedBox(
                         height: kSpaceBetweenTwoFields * 2,
                       ),
-                      TextFieldWrapper(
-                        placeholder: AppLocalizations.of(context)!.name,
-                        onChanged: (value) {
-                          name = value;
-                        },
-                        keyboardType: TextInputType.name,
-                        autofocus: true,
-                      ),
+                      getNameField(),
                       SizedBox(
                         height: kSpaceBetweenTwoFields,
                       ),
-                      TextFieldWrapper(
-                        placeholder: AppLocalizations.of(context)!.email,
-                        onChanged: (value) {
-                          email = value;
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                      ),
+                      getEmailField(),
                       SizedBox(
                         height: kSpaceBetweenTwoFields,
                       ),
-                      TextFieldWrapper(
-                        placeholder: AppLocalizations.of(context)!.password,
-                        obscureText: true,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                        keyboardType: TextInputType.text,
-                      ),
+                      getPasswordField(),
                       SizedBox(
                         height: kSpaceBetweenTwoFields * 2,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          ButtonWrapper(
-                              buttonType: ButtonType.ElevatedButton,
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(email);
-                                  print(password);
-                                  print(name);
-                                }
-                              },
-                              title:
-                                  AppLocalizations.of(context)!.createAccount),
+                          getButton(),
                           SizedBox(
                             height: kSpaceBetweenTwoFields * 2,
                           ),
@@ -119,6 +96,69 @@ class SignUp extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  TextFieldWrapper getNameField() {
+    return TextFieldWrapper(
+      onChanged: (value) {
+        name = value;
+      },
+      keyboardType: TextInputType.name,
+      autofocus: true,
+      decoration: kTextFieldInputDecoration.copyWith(
+        hintText: AppLocalizations.of(context)!.name,
+      ),
+    );
+  }
+
+  TextFieldWrapper getPasswordField() {
+    return TextFieldWrapper(
+      obscureText: passwordObscured,
+      onChanged: (value) {
+        password = value;
+      },
+      keyboardType: TextInputType.text,
+      decoration: kTextFieldInputDecoration.copyWith(
+        hintText: AppLocalizations.of(context)!.password,
+        suffixIcon: IconButton(
+          icon: Icon(
+            passwordObscured ? Icons.visibility_off : Icons.visibility,
+            color: Theme.of(context).primaryColorLight,
+          ),
+          onPressed: () {
+            setState(() {
+              passwordObscured = !passwordObscured;
+            });
+          },
+        ),
+      ),
+    );
+  }
+
+  TextFieldWrapper getEmailField() {
+    return TextFieldWrapper(
+      onChanged: (value) {
+        email = value;
+      },
+      keyboardType: TextInputType.emailAddress,
+      decoration: kTextFieldInputDecoration.copyWith(
+        hintText: AppLocalizations.of(context)!.email,
+      ),
+    );
+  }
+
+  ButtonWrapper getButton() {
+    return ButtonWrapper(
+      buttonType: ButtonType.ElevatedButton,
+      onPressed: () {
+        if (_formKey.currentState!.validate()) {
+          print(email);
+          print(password);
+          print(name);
+        }
+      },
+      title: AppLocalizations.of(context)!.createAccount,
     );
   }
 }
