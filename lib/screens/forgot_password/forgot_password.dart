@@ -25,61 +25,65 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
-          children: [
-            Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset('assets/images/forgot_password.jpeg'),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields,
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.welcomeText,
-                    style: getHeaderStyle(
-                        Provider.of<ThemeModel>(context).currentTheme),
-                  ),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields,
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.forgotPassword,
-                    style: getSubHeaderStyle(
-                        Provider.of<ThemeModel>(context).currentTheme),
-                  ),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields * 2,
-                  ),
-                  getEmailField(),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields,
-                  ),
-                  getPasswordField(),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields,
-                  ),
-                  getConfirmPasswordField(),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields * 2,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      getButton(),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields * 2,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: SafeArea(
+          child: ListView(
+            padding:
+                EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
+            children: [
+              Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('assets/images/forgot_password.jpeg'),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.welcomeText,
+                      style: getHeaderStyle(
+                          Provider.of<ThemeModel>(context).currentTheme),
+                    ),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.forgotPassword,
+                      style: getSubHeaderStyle(
+                          Provider.of<ThemeModel>(context).currentTheme),
+                    ),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields * 2,
+                    ),
+                    getEmailField(),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields,
+                    ),
+                    getPasswordField(),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields,
+                    ),
+                    getConfirmPasswordField(),
+                    SizedBox(
+                      height: kSpaceBetweenTwoFields * 2,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        getButton(),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields * 2,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

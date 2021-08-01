@@ -25,75 +25,79 @@ class _SignUpState extends State<SignUp> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
-          children: [
-            Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    children: [
-                      Image.asset('assets/images/sign_up.jpeg'),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.welcomeText,
-                        style: getHeaderStyle(
-                            Provider.of<ThemeModel>(context).currentTheme),
-                      ),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.signUp,
-                        style: getSubHeaderStyle(
-                            Provider.of<ThemeModel>(context).currentTheme),
-                      ),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields * 2,
-                      ),
-                      getNameField(),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields,
-                      ),
-                      getEmailField(),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields,
-                      ),
-                      getPasswordField(),
-                      SizedBox(
-                        height: kSpaceBetweenTwoFields * 2,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          getButton(),
-                          SizedBox(
-                            height: kSpaceBetweenTwoFields * 2,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: kSpaceBetweenTwoFields * 2),
-                    child: SignUpSignInRedirection(
-                      text: AppLocalizations.of(context)!.haveAccount,
-                      linkText: AppLocalizations.of(context)!.signIn,
-                      redirectToLink: SignIn.id,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: SafeArea(
+          child: ListView(
+            padding:
+                EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
+            children: [
+              Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      children: [
+                        Image.asset('assets/images/sign_up.jpeg'),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.welcomeText,
+                          style: getHeaderStyle(
+                              Provider.of<ThemeModel>(context).currentTheme),
+                        ),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.signUp,
+                          style: getSubHeaderStyle(
+                              Provider.of<ThemeModel>(context).currentTheme),
+                        ),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields * 2,
+                        ),
+                        getNameField(),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields,
+                        ),
+                        getEmailField(),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields,
+                        ),
+                        getPasswordField(),
+                        SizedBox(
+                          height: kSpaceBetweenTwoFields * 2,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            getButton(),
+                            SizedBox(
+                              height: kSpaceBetweenTwoFields * 2,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            )
-          ],
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: kSpaceBetweenTwoFields * 2),
+                      child: SignUpSignInRedirection(
+                        text: AppLocalizations.of(context)!.haveAccount,
+                        linkText: AppLocalizations.of(context)!.signIn,
+                        redirectToLink: SignIn.id,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
