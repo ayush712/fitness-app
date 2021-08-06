@@ -1,4 +1,5 @@
 //import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
+import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/gender_selection/components/a_gender.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
@@ -86,7 +87,9 @@ class GenderSelection extends StatelessWidget {
                   BackContinueButtons(
                     showPreviousButton: false,
                     // previousButtonTap: () {},
-                    nextButtonTap: () {},
+                    nextButtonTap: () {
+                      Navigator.pushNamed(context, ActivityLevelSelection.id);
+                    },
                   ),
                   SizedBox(
                     height: kSpaceBetweenTwoFields * 2,

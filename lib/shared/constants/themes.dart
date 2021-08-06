@@ -13,6 +13,7 @@ ThemeData lightTheme = ThemeData(
   disabledColor: LightThemeVaribles.kQuaternaryColor,
   dividerColor: LightThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
+  cardColor: LightThemeVaribles.kWidgetBackgroundClor,
   brightness: Brightness.light,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
@@ -142,6 +143,7 @@ ThemeData darkTheme = ThemeData(
   disabledColor: DarkThemeVaribles.kQuaternaryColor,
   dividerColor: DarkThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: DarkThemeVaribles.kAppBackgroundColor,
+  cardColor: LightThemeVaribles.kWidgetBackgroundClor,
   brightness: Brightness.dark,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(

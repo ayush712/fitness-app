@@ -1,4 +1,5 @@
 import 'package:fithics_mobile/screens/activity_level_selection/components/an_activity_type.dart';
+import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
@@ -21,8 +22,6 @@ class ActivityLevelSelection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   height: kSpaceBetweenTwoFields * 4,
@@ -45,16 +44,18 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields * 4,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ...getActivityWidgets(context),
+                    ...getActivityWidgets(
+                        context, _selectedActivity.activityType),
                   ],
                 ),
                 SizedBox(
                   height: kSpaceBetweenTwoFields * 2,
                 ),
                 BackContinueButtons(
-                  previousButtonTap: () {},
+                  previousButtonTap: () {
+                    Navigator.pushNamed(context, GenderSelection.id);
+                  },
                   nextButtonTap: () {},
                 ),
                 SizedBox(
@@ -68,22 +69,30 @@ class ActivityLevelSelection extends StatelessWidget {
     );
   }
 
-  Iterable<Container> getActivityWidgets(BuildContext context) {
+  Iterable<Container> getActivityWidgets(
+      BuildContext context, ActivityType selectedActivityType) {
     return Provider.of<UserPreferenceModel>(
       context,
     ).getAllActivities().map<Container>((activity) {
       return Container(
-        child: AnActivityType(
-          header: activity.header,
-          description: activity.description,
-          icon: activity.icon,
-          isSelected: activity.activityType == ActivityType.Sedentary,
-          onTap: () {
-            Provider.of<UserPreferenceModel>(context, listen: false)
-                .setActivity(
-              activity.activityType,
-            );
-          },
+        child: Column(
+          children: [
+            AnActivityType(
+              header: activity.header,
+              description: activity.description,
+              icon: activity.icon,
+              isSelected: activity.activityType == selectedActivityType,
+              onTap: () {
+                Provider.of<UserPreferenceModel>(context, listen: false)
+                    .setActivity(
+                  activity.activityType,
+                );
+              },
+            ),
+            SizedBox(
+              height: kSpaceBetweenTwoFields,
+            ),
+          ],
         ),
       );
     });

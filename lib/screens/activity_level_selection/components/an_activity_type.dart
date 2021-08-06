@@ -23,9 +23,11 @@ class AnActivityType extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        //color: isSelected ? Theme.of(context).primaryColor : Colors.transparent,
         padding: EdgeInsets.all(kSpaceBetweenTwoFields),
         decoration: BoxDecoration(
+          color: isSelected
+              ? Theme.of(context).shadowColor
+              : Theme.of(context).cardColor,
           border: Border.all(
             color: isSelected
                 ? Theme.of(context).primaryColor
@@ -37,11 +39,10 @@ class AnActivityType extends StatelessWidget {
           ),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
               icon,
-              size: 24.0,
+              size: 36.0,
               semanticLabel: description,
             ),
             SizedBox(
@@ -49,22 +50,18 @@ class AnActivityType extends StatelessWidget {
             ),
             Container(
               width: (MediaQuery.of(context).size.width -
-                  (24 + kSpaceBetweenTwoFields * 8)),
+                  (36.0 + kSpaceBetweenTwoFields * 8)),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     header,
-                    textAlign: TextAlign.left,
                     style: getWidgetHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme,
                     ),
                   ),
-                  SizedBox(
-                    height: kSpaceBetweenTwoFields,
-                  ),
                   Text(
-                    header,
-                    textAlign: TextAlign.left,
+                    description,
                     style: getWidgetSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme,
                     ),

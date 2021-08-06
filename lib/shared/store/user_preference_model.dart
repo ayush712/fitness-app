@@ -23,43 +23,76 @@ class ActivityDetail {
       required this.activityType});
 }
 
-late Map<ActivityType, ActivityDetail> _activities = {
+// Map<ActivityType, ActivityDetail> _activities = {
+//   ActivityType.Sedentary: ActivityDetail(
+//     header: 'sedentaryHeader', //AppLocalizations.of(context)!.sedentaryHeader,
+//     description:
+//         'sedentaryDescription', //AppLocalizations.of(context)!.sedentaryDescription,
+//     icon: Icons.access_time_filled_rounded,
+//     activityType: ActivityType.Sedentary,
+//   ),
+//   ActivityType.LightActivity: ActivityDetail(
+//     header:
+//         'lightActivityHeader', //AppLocalizations.of(context)!.lightActivityHeader,
+//     description:
+//         'lightActivityDescription', //AppLocalizations.of(context)!.lightActivityDescription,
+//     icon: Icons.access_alarm,
+//     activityType: ActivityType.LightActivity,
+//   ),
+//   ActivityType.ModeratelyActive: ActivityDetail(
+//     header:
+//         'moderateActivityHeader', //AppLocalizations.of(context)!.moderateActivityHeader,
+//     description:
+//         'moderateActivityDescription', //AppLocalizations.of(context)!.moderateActivityDescription,
+//     icon: CupertinoIcons.hand_thumbsup,
+//     activityType: ActivityType.ModeratelyActive,
+//   ),
+//   ActivityType.VeryActive: ActivityDetail(
+//     header:
+//         'veryActiveHeader', //AppLocalizations.of(context)!.veryActiveHeader,
+//     description:
+//         'veryActiveDescription', //AppLocalizations.of(context)!.veryActiveDescription,
+//     icon: Icons.thumb_up,
+//     activityType: ActivityType.VeryActive,
+//   ),
+//   ActivityType.ExtremelyActive: ActivityDetail(
+//     header:
+//         'extermelyActiveHeader', //AppLocalizations.of(context)!.extermelyActiveHeader,
+//     description:
+//         'extermelyActiveDescription', //AppLocalizations.of(context)!.extermelyActiveDescription,
+//     icon: CupertinoIcons.location_fill,
+//     activityType: ActivityType.ExtremelyActive,
+//   )
+// };
+
+Map<ActivityType, ActivityDetail> _activities = {
   ActivityType.Sedentary: ActivityDetail(
-    header: 'sedentaryHeader', //AppLocalizations.of(context)!.sedentaryHeader,
-    description:
-        'sedentaryDescription', //AppLocalizations.of(context)!.sedentaryDescription,
+    header: "Sedentary",
+    description: "Honestly, I’m not active at all.",
     icon: Icons.access_time_filled_rounded,
     activityType: ActivityType.Sedentary,
   ),
   ActivityType.LightActivity: ActivityDetail(
-    header:
-        'lightActivityHeader', //AppLocalizations.of(context)!.lightActivityHeader,
-    description:
-        'lightActivityDescription', //AppLocalizations.of(context)!.lightActivityDescription,
+    header: "Light activity",
+    description: "I do light activities.",
     icon: Icons.access_alarm,
     activityType: ActivityType.LightActivity,
   ),
   ActivityType.ModeratelyActive: ActivityDetail(
-    header:
-        'moderateActivityHeader', //AppLocalizations.of(context)!.moderateActivityHeader,
-    description:
-        'moderateActivityDescription', //AppLocalizations.of(context)!.moderateActivityDescription,
+    header: "Moderately active",
+    description: "I work out on ocassion but I want to step it up.",
     icon: CupertinoIcons.hand_thumbsup,
     activityType: ActivityType.ModeratelyActive,
   ),
   ActivityType.VeryActive: ActivityDetail(
-    header:
-        'veryActiveHeader', //AppLocalizations.of(context)!.veryActiveHeader,
-    description:
-        'veryActiveDescription', //AppLocalizations.of(context)!.veryActiveDescription,
+    header: "Very active",
+    description: "I work out often and it’s fairly big part of my life.",
     icon: Icons.thumb_up,
     activityType: ActivityType.VeryActive,
   ),
   ActivityType.ExtremelyActive: ActivityDetail(
-    header:
-        'extermelyActiveHeader', //AppLocalizations.of(context)!.extermelyActiveHeader,
-    description:
-        'extermelyActiveDescription', //AppLocalizations.of(context)!.extermelyActiveDescription,
+    header: "Extemely active",
+    description: "I’m in gret shape and working out is massive for me.",
     icon: CupertinoIcons.location_fill,
     activityType: ActivityType.ExtremelyActive,
   )
