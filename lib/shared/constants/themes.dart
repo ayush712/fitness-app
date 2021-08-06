@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 ThemeData lightTheme = ThemeData(
   fontFamily: kFontFamily,
   primaryColor: LightThemeVaribles.kThemeColor,
-  primaryColorDark: LightThemeVaribles.kTextFieldTextColor,
-  primaryColorLight: LightThemeVaribles.kTextFieldPlaceholderColor,
+  shadowColor: LightThemeVaribles.kShadowColor,
+  primaryColorDark: LightThemeVaribles.kSecondaryTextColor,
+  primaryColorLight: LightThemeVaribles.kQuaternaryColor,
   focusColor: LightThemeVaribles.kTextFieldTextColor,
   accentColor: LightThemeVaribles.kPrimaryTextColor,
   secondaryHeaderColor: LightThemeVaribles.kTertiaryTextColor,
-  disabledColor: LightThemeVaribles.kQuaternaryTextColor,
+  disabledColor: LightThemeVaribles.kQuaternaryColor,
   dividerColor: LightThemeVaribles.kDividerColor,
   scaffoldBackgroundColor: LightThemeVaribles.kAppBackgroundColor,
   brightness: Brightness.light,
@@ -30,6 +31,10 @@ ThemeData lightTheme = ThemeData(
     ),
     filled: true,
     fillColor: LightThemeVaribles.kTextFieldBackgroundColor,
+    suffixStyle: TextStyle(
+      color: LightThemeVaribles.kTextFieldIconColor,
+      decorationColor: LightThemeVaribles.kTextFieldIconColor,
+    ),
     border: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(kFieldBorderRadius),
@@ -47,11 +52,18 @@ ThemeData lightTheme = ThemeData(
           BorderSide(color: LightThemeVaribles.kTextFieldBackgroundColor),
     ),
   ),
-  appBarTheme: AppBarTheme(color: LightThemeVaribles.kAppBarBackgroundColor),
+  appBarTheme: AppBarTheme(
+    color: LightThemeVaribles.kAppBarBackgroundColor,
+  ),
   textTheme: TextTheme(
     subtitle1: TextStyle(
-        color: LightThemeVaribles.kTextFieldTextColor,
-        fontSize: kTextFieldFontSize),
+      color: LightThemeVaribles.kHeadingTextColor,
+      fontSize: kTextFieldFontSize,
+    ),
+    subtitle2: TextStyle(
+      color: LightThemeVaribles.kSubHeadingTextColor,
+      fontSize: kTextFieldFontSize,
+    ),
   ),
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: LightThemeVaribles.kPrimaryTextColor),
@@ -121,8 +133,9 @@ ThemeData lightTheme = ThemeData(
 ThemeData darkTheme = ThemeData(
   fontFamily: kFontFamily,
   primaryColor: DarkThemeVaribles.kThemeColor,
-  primaryColorDark: LightThemeVaribles.kTextFieldTextColor,
-  primaryColorLight: LightThemeVaribles.kTextFieldPlaceholderColor,
+  shadowColor: DarkThemeVaribles.kShadowColor,
+  primaryColorDark: LightThemeVaribles.kSecondaryTextColor,
+  primaryColorLight: LightThemeVaribles.kQuaternaryColor,
   focusColor: DarkThemeVaribles.kTextFieldTextColor,
   accentColor: DarkThemeVaribles.kPrimaryColor,
   secondaryHeaderColor: DarkThemeVaribles.kTertiaryColor,
@@ -132,14 +145,14 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: TextStyle(
-      color: LightThemeVaribles.kTextFieldErrorColor,
+      color: DarkThemeVaribles.kTextFieldErrorColor,
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(kFieldBorderRadius),
       ),
       borderSide: BorderSide(
-        color: LightThemeVaribles.kTextFieldErrorBorderColor,
+        color: DarkThemeVaribles.kTextFieldErrorBorderColor,
       ),
     ),
     helperStyle: TextStyle(
@@ -147,12 +160,17 @@ ThemeData darkTheme = ThemeData(
     ),
     filled: true,
     fillColor: DarkThemeVaribles.kTextFieldBackgroundColor,
+    suffixStyle: TextStyle(
+      color: DarkThemeVaribles.kTextFieldIconColor,
+      decorationColor: DarkThemeVaribles.kTextFieldIconColor,
+    ),
     border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(kFieldBorderRadius),
-        ),
-        borderSide:
-            BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor)),
+      borderRadius: BorderRadius.all(
+        Radius.circular(kFieldBorderRadius),
+      ),
+      borderSide:
+          BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor),
+    ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(kFieldBorderRadius)),
       borderSide:
@@ -166,11 +184,18 @@ ThemeData darkTheme = ThemeData(
           BorderSide(color: DarkThemeVaribles.kTextFieldBackgroundColor),
     ),
   ),
-  appBarTheme: AppBarTheme(color: DarkThemeVaribles.kAppBarBackgroundColor),
+  appBarTheme: AppBarTheme(
+    color: DarkThemeVaribles.kAppBarBackgroundColor,
+  ),
   textTheme: TextTheme(
     subtitle1: TextStyle(
-        color: DarkThemeVaribles.kTextFieldTextColor,
-        fontSize: kTextFieldFontSize),
+      color: DarkThemeVaribles.kHeadingTextColor,
+      fontSize: kTextFieldFontSize,
+    ),
+    subtitle2: TextStyle(
+      color: DarkThemeVaribles.kSubHeadingTextColor,
+      fontSize: kTextFieldFontSize,
+    ),
   ),
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: DarkThemeVaribles.kPrimaryColor),

@@ -1,12 +1,14 @@
 import 'package:fithics_mobile/shared/constants/styles.dart';
+import 'package:fithics_mobile/shared/store/theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-enum ButtonType { OutlinedButton, TextButton, ElevatedButton }
+enum ButtonType { OutlinedButton, TextButton, ElevatedButton, NoBorderButton }
 
 class ButtonWrapper extends StatelessWidget {
   final String title;
   final onPressed;
-  final buttonType;
+  final ButtonType buttonType;
   ButtonWrapper(
       {required this.onPressed,
       required this.title,
@@ -18,6 +20,8 @@ class ButtonWrapper extends StatelessWidget {
         return textButtonWrapper();
       case ButtonType.OutlinedButton:
         return outlinedButtonWrapper();
+      case ButtonType.NoBorderButton:
+        return noBorderButtonWrapper(context);
       case ButtonType.ElevatedButton:
         return elevatedButtonWrapper();
       default:
@@ -43,6 +47,19 @@ class ButtonWrapper extends StatelessWidget {
       child: Text(
         title,
         style: kButtonTextStyle,
+      ),
+    );
+  }
+
+  OutlinedButton noBorderButtonWrapper(context) {
+    return OutlinedButton(
+      onPressed: onPressed,
+      style: kNoBorderButtonStyle,
+      child: Text(
+        title,
+        style: kButtonTextStyle,
+        // style: getBackButtonTextColor(
+        //     Provider.of<ThemeModel>(context).currentTheme),
       ),
     );
   }

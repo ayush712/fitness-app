@@ -1,4 +1,5 @@
 import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
+import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/screens/sign_in/components/divider_text.dart';
 import 'package:fithics_mobile/screens/sign_up/sign_up.dart';
 import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
@@ -124,11 +125,17 @@ class _SignInState extends State<SignIn> {
           child: Text(
             AppLocalizations.of(context)!.forgot,
             style: TextStyle(
-                color: Theme.of(context).primaryColorDark,
-                fontWeight: FontWeight.w600,
-                fontSize: kXSmallFontSize),
+              color: Theme.of(context).primaryColorDark,
+              fontWeight: FontWeight.w600,
+              fontSize: kXSmallFontSize,
+            ),
           ),
-          onTap: () => {Navigator.pushNamed(context, ForgotPassword.id)},
+          onTap: () => {
+            Navigator.pushNamed(
+              context,
+              ForgotPassword.id,
+            ),
+          },
         ),
       ),
     );
@@ -155,6 +162,7 @@ class _SignInState extends State<SignIn> {
         if (_formKey.currentState!.validate()) {
           print(email);
           print(password);
+          Navigator.pushNamed(context, GenderSelection.id);
         }
       },
       title: AppLocalizations.of(context)!.signIn,

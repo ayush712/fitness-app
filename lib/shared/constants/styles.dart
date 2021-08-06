@@ -38,55 +38,81 @@ final ButtonStyle kOutlinedButtonStyle = OutlinedButton.styleFrom(
   padding: kButtonPaddings,
 );
 
-getHeaderStyle(ThemeData theme) {
+final ButtonStyle kNoBorderButtonStyle = OutlinedButton.styleFrom(
+  padding: kButtonPaddings,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(kFieldBorderRadius),
+    side: BorderSide().copyWith(
+      color: Colors.transparent,
+    ),
+  ),
+);
+
+TextStyle getHeaderStyle(ThemeData theme) {
   return TextStyle(
-      color: theme.accentColor,
-      fontSize: kLargeFontSize,
-      fontWeight: FontWeight.w600);
+    fontSize: kLargeFontSize,
+    fontWeight: FontWeight.w600,
+  );
 }
 
-getSubHeaderStyle(ThemeData theme) {
+TextStyle getWidgetHeaderStyle(ThemeData theme) {
+  return TextStyle(
+    fontSize: kMediumFontSize,
+    fontWeight: FontWeight.w600,
+  );
+}
+
+TextStyle getSubHeaderStyle(ThemeData theme) {
   return TextStyle(
     color: theme.secondaryHeaderColor,
     fontSize: kMediumFontSize,
   );
 }
 
-getLinkStyle(ThemeData theme) {
+TextStyle getWidgetSubHeaderStyle(ThemeData theme) {
+  return TextStyle(
+    color: theme.secondaryHeaderColor,
+    fontSize: kSmallFontSize,
+  );
+}
+
+TextStyle getLinkStyle(ThemeData theme) {
   return TextStyle(color: theme.primaryColor, fontSize: kXSmallFontSize);
 }
 
-getInfoTextStyle(ThemeData theme) {
+TextStyle getInfoTextStyle(ThemeData theme) {
   return TextStyle(
     color: theme.disabledColor,
     fontSize: kXSmallFontSize,
   );
 }
 
-getDividerTextStyle(ThemeData theme) {
+TextStyle getDividerTextStyle(ThemeData theme) {
   return TextStyle(
     color: theme.disabledColor,
     fontSize: kSmallFontSize,
   );
 }
 
-getForgotPasswordTextColor(ThemeData theme) {
-  return theme.textTheme.subtitle1!.color;
+Color getBackButtonTextColor(ThemeData theme) {
+  return theme.disabledColor;
 }
 
 class LightThemeVaribles {
   static final Color kPrimaryTextColor = Color(0xFF000000);
   static final Color kSecondaryTextColor = Color(0xFF1D3A5B);
   static final Color kTertiaryTextColor = Color(0xFF655F77);
-  static final Color kQuaternaryTextColor = Color(0xFF949494);
+  static final Color kQuaternaryColor = Color(0xFF949494);
   static final Color kContrastTextColorToDarkColor = Color(0xFFFFFFFF);
   static final Color kThemeColor = Color(0xFF38B398);
+  static final Color kShadowColor = Color(0xFFEBF9F6);
   static final Color kAppBackgroundColor = Color(0xFFFFFFFF);
   static final Color kHeadingTextColor = kPrimaryTextColor;
   static final Color kSubHeadingTextColor = kTertiaryTextColor;
 
   static final Color kTextFieldTextColor = kSecondaryTextColor;
-  static final Color kTextFieldPlaceholderColor = kQuaternaryTextColor;
+  static final Color kTextFieldIconColor = kQuaternaryColor;
+  static final Color kTextFieldPlaceholderColor = kQuaternaryColor;
   static final Color kTextFieldBackgroundColor = Color(0xFFF8F8F8);
   static final Color kTextFieldErrorBackgroundColor = Colors.red.shade200;
   static final Color kTextFieldErrorColor = Colors.red.shade400;
@@ -111,11 +137,13 @@ class DarkThemeVaribles {
   static final Color kQuaternaryColor = Color(0xFF949494);
   static final Color kContrastToDarkColor = Color(0xFFFFFFFF);
   static final Color kThemeColor = Color(0xFF38B398);
+  static final Color kShadowColor = Color(0xFFEBF9F6);
   static final Color kAppBackgroundColor = Color(0xFFFFFFFF);
   static final Color kHeadingTextColor = kPrimaryColor;
   static final Color kSubHeadingTextColor = kTertiaryColor;
 
   static final Color kTextFieldTextColor = kSecondaryColor;
+  static final Color kTextFieldIconColor = kQuaternaryColor;
   static final Color kTextFieldPlaceholderColor = kQuaternaryColor;
   static final Color kTextFieldBackgroundColor = Color(0xFFF8F8F8);
   static final Color kTextFieldErrorBackgroundColor = Colors.red.shade200;

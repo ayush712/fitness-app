@@ -106,7 +106,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         suffixIcon: IconButton(
           icon: Icon(
             confirmPasswordObscured ? Icons.visibility : Icons.visibility_off,
-            color: Theme.of(context).primaryColorLight,
+            //color: Theme.of(context).primaryColorLight,
           ),
           onPressed: () {
             setState(() {
@@ -131,7 +131,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         suffixIcon: IconButton(
           icon: Icon(
             passwordObscured ? Icons.visibility : Icons.visibility_off,
-            color: Theme.of(context).primaryColorLight,
+            //color: Theme.of(context).primaryColorLight,
           ),
           onPressed: () {
             setState(() {

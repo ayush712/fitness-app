@@ -3,6 +3,7 @@ import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.d
 import 'package:fithics_mobile/shared/components/signup_signin_redirection.dart/signup_signin_redirection.dart';
 import 'package:fithics_mobile/shared/components/text_field_wrapper/text_field_wrapper.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
+import 'package:fithics_mobile/shared/services/validators.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -105,6 +106,7 @@ class _SignUpState extends State<SignUp> {
 
   TextFieldWrapper getNameField() {
     return TextFieldWrapper(
+      validator: nameValidator(context),
       onChanged: (value) {
         name = value;
       },
@@ -118,6 +120,7 @@ class _SignUpState extends State<SignUp> {
 
   TextFieldWrapper getPasswordField() {
     return TextFieldWrapper(
+      validator: passwordValidator(context),
       obscureText: passwordObscured,
       onChanged: (value) {
         password = value;
@@ -128,7 +131,7 @@ class _SignUpState extends State<SignUp> {
         suffixIcon: IconButton(
           icon: Icon(
             passwordObscured ? Icons.visibility_off : Icons.visibility,
-            color: Theme.of(context).primaryColorLight,
+            //color: Theme.of(context).primaryColorLight,
           ),
           onPressed: () {
             setState(() {
@@ -142,6 +145,7 @@ class _SignUpState extends State<SignUp> {
 
   TextFieldWrapper getEmailField() {
     return TextFieldWrapper(
+      validator: emailValidator(context),
       onChanged: (value) {
         email = value;
       },
