@@ -1,5 +1,5 @@
 import 'package:fithics_mobile/screens/activity_level_selection/components/an_activity_type.dart';
-import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
+import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
@@ -27,7 +27,8 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields * 4,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.genderSelectionHeader,
+                  AppLocalizations.of(context)!.activitySelectionHeader,
+                  textAlign: TextAlign.center,
                   style: getHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
                 ),
@@ -35,7 +36,7 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.genderSelectionDescription,
+                  AppLocalizations.of(context)!.activitySelectionDescription,
                   textAlign: TextAlign.center,
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -54,7 +55,7 @@ class ActivityLevelSelection extends StatelessWidget {
                 ),
                 BackContinueButtons(
                   previousButtonTap: () {
-                    Navigator.pushNamed(context, GenderSelection.id);
+                    Navigator.pushNamed(context, DateOfBirthSelection.id);
                   },
                   nextButtonTap: () {},
                 ),

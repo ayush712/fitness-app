@@ -34,7 +34,7 @@
   "genderSelectionDescription": "This will help us get your goals more efficiently.",
   "male": "Male",
   "female": "Female",
-  "activitSelectionHeader": "What's your current activity level?",
+  "activitySelectionHeader": "What's your current activity level?",
   "activitySelectionDescription": "This will help us calculate your calories and offer an appropriate dietary solution",
   "sedentaryHeader": "Sedentary",
   "sedentaryDescription": "Honestly, I’m not active at all.",
@@ -45,7 +45,11 @@
   "veryActiveHeader": "Very active",
   "veryActiveDescription": "I work out often and it’s fairly big part of my life.",
   "extermelyActiveHeader": "Extemely active",
-  "extermelyActiveDescription": "I’m in gret shape and working out is massive for me.",
+  "extermelyActiveDescription": "I’m in great shape and working out is massive for me.",
+  "dobSelectionHeader": "What's your date of birth?",
+  "dobSelectionDescription": "We will customize your workout routines acording to your age",
+  "heightSelectionHeader": "What’s your height?",
+  "heightSelectionDescription": "This will help us calculate your calories and offer an appropriate dietary solution",
   "previous": "Back",
   "next": "Continue"
 }

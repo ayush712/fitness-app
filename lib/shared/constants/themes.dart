@@ -1,4 +1,5 @@
 import 'package:fithics_mobile/shared/constants/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData(

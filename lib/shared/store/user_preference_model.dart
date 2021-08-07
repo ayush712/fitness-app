@@ -101,6 +101,8 @@ Map<ActivityType, ActivityDetail> _activities = {
 class UserPreferenceModel extends ChangeNotifier {
   Gender _gender = Gender.Male;
   ActivityType _activity = ActivityType.Sedentary;
+  DateTime _dob = DateTime(DateTime.now().year - 16);
+
   setGender(Gender gender) {
     _gender = gender;
     return notifyListeners();
@@ -121,5 +123,14 @@ class UserPreferenceModel extends ChangeNotifier {
 
   Iterable<ActivityDetail> getAllActivities() {
     return _activities.values.toList();
+  }
+
+  getDob() {
+    return _dob;
+  }
+
+  setDob(DateTime value) {
+    _dob = value;
+    return notifyListeners();
   }
 }

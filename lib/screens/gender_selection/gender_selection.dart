@@ -1,5 +1,6 @@
 //import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
 import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
+import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
 import 'package:fithics_mobile/screens/gender_selection/components/a_gender.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
@@ -19,7 +20,7 @@ class GenderSelection extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: kSpaceBetweenTwoFields * 2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +89,7 @@ class GenderSelection extends StatelessWidget {
                     showPreviousButton: false,
                     // previousButtonTap: () {},
                     nextButtonTap: () {
-                      Navigator.pushNamed(context, ActivityLevelSelection.id);
+                      Navigator.pushNamed(context, DateOfBirthSelection.id);
                     },
                   ),
                   SizedBox(
