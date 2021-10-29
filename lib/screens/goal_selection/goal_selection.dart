@@ -1,5 +1,5 @@
+import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
 import 'package:fithics_mobile/shared/components/a_tile/a_tile.dart';
-import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
@@ -7,14 +7,13 @@ import 'package:fithics_mobile/shared/store/user_preference_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-class ActivityLevelSelection extends StatelessWidget {
-  static const String id = 'activity_level_selection';
+class GoalSelection extends StatelessWidget {
+  static const String id = 'goal_selection';
   @override
   Widget build(BuildContext context) {
-    ActivityDetail _selectedActivity =
-        Provider.of<UserPreferenceModel>(context).getActivity();
+    GoalDetail _selectedGoal =
+        Provider.of<UserPreferenceModel>(context).getGoal();
 
     return Scaffold(
       body: SafeArea(
@@ -27,7 +26,7 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields * 4,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.activitySelectionHeader,
+                  AppLocalizations.of(context)!.goalSelectionHeader,
                   textAlign: TextAlign.center,
                   style: getHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -36,7 +35,7 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.activitySelectionDescription,
+                  AppLocalizations.of(context)!.goalSelectionDescription,
                   textAlign: TextAlign.center,
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -46,8 +45,7 @@ class ActivityLevelSelection extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    ...getActivityWidgets(
-                        context, _selectedActivity.activityType),
+                    ...getGoalWidgets(context, _selectedGoal.goalType),
                   ],
                 ),
                 SizedBox(
@@ -55,7 +53,7 @@ class ActivityLevelSelection extends StatelessWidget {
                 ),
                 BackContinueButtons(
                   previousButtonTap: () {
-                    Navigator.pushNamed(context, DateOfBirthSelection.id);
+                    Navigator.pushNamed(context, NotificationSelection.id);
                   },
                   nextButtonTap: () {},
                 ),
@@ -70,23 +68,23 @@ class ActivityLevelSelection extends StatelessWidget {
     );
   }
 
-  Iterable<Container> getActivityWidgets(
-      BuildContext context, ActivityType selectedActivityType) {
+  Iterable<Container> getGoalWidgets(
+      BuildContext context, GoalType selectedGoalType) {
     return Provider.of<UserPreferenceModel>(
       context,
-    ).getAllActivities().map<Container>((activity) {
+    ).getAllGoals().map<Container>((goal) {
       return Container(
         child: Column(
           children: [
             ATile(
-              header: activity.header,
-              description: activity.description,
-              icon: activity.icon,
-              isSelected: activity.activityType == selectedActivityType,
+              header: goal.header,
+              description: goal.description,
+              icon: goal.icon,
+              isSelected: goal.goalType == selectedGoalType,
               onTap: () {
                 Provider.of<UserPreferenceModel>(context, listen: false)
-                    .setActivity(
-                  activity.activityType,
+                    .setGoal(
+                  goal.goalType,
                 );
               },
             ),

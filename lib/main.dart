@@ -2,7 +2,9 @@ import 'package:fithics_mobile/screens/activity_level_selection/activity_level_s
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
 import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
+import 'package:fithics_mobile/screens/goal_selection/goal_selection.dart';
 import 'package:fithics_mobile/screens/height_selection/height_selection.dart';
+import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
 import 'package:fithics_mobile/screens/sign_in/sign_in.dart';
 import 'package:fithics_mobile/screens/sign_up/sign_up.dart';
 import 'package:fithics_mobile/screens/splash/splash.dart';
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: Provider.of<LocaleModel>(context).getSupportedLocales(),
-      initialRoute: Splash.id,
+      initialRoute: NotificationSelection.id,
       routes: {
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
@@ -50,6 +52,8 @@ class MyApp extends StatelessWidget {
         DateOfBirthSelection.id: (context) => DateOfBirthSelection(),
         ActivityLevelSelection.id: (context) => ActivityLevelSelection(),
         HeightSelection.id: (context) => HeightSelection(),
+        NotificationSelection.id: (context) => NotificationSelection(),
+        GoalSelection.id: (context) => GoalSelection(),
       },
     );
   }

@@ -1,5 +1,5 @@
-import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
+import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
@@ -24,7 +24,7 @@ class HeightSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields * 4,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.dobSelectionHeader,
+                  AppLocalizations.of(context)!.heightSelectionHeader,
                   textAlign: TextAlign.center,
                   style: getHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -33,7 +33,7 @@ class HeightSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.dobSelectionDescription,
+                  AppLocalizations.of(context)!.heightSelectionDescription,
                   textAlign: TextAlign.center,
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -43,9 +43,10 @@ class HeightSelection extends StatelessWidget {
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height -
-                      (kSpaceBetweenTwoFields * 28),
+                      (kSpaceBetweenTwoFields * 25),
                   child: CupertinoPicker(
-                    itemExtent: 32.0,
+                    itemExtent: 64.0,
+                    backgroundColor: Colors.white,
                     onSelectedItemChanged: (int index) {
                       print(index + 1);
                       // setState(() {
@@ -56,7 +57,12 @@ class HeightSelection extends StatelessWidget {
                     },
                     children: List.generate(12, (index) {
                       return Center(
-                        child: Text('${index + 1}'),
+                        child: Text(
+                          '${index + 1}',
+                          style: TextStyle(
+                            backgroundColor: Colors.white,
+                          ),
+                        ),
                       );
                     }),
                   ),
@@ -74,7 +80,7 @@ class HeightSelection extends StatelessWidget {
                   nextButtonTap: () {
                     Navigator.pushNamed(
                       context,
-                      ActivityLevelSelection.id,
+                      NotificationSelection.id,
                     );
                   },
                 ),

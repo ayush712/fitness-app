@@ -7,11 +7,12 @@ class BackContinueButtons extends StatelessWidget {
   final nextButtonTap;
   final bool showPreviousButton;
   final bool showNextButton;
-  BackContinueButtons(
-      {this.showPreviousButton = true,
-      this.showNextButton = true,
-      this.previousButtonTap,
-      this.nextButtonTap});
+  BackContinueButtons({
+    this.showPreviousButton = true,
+    this.showNextButton = true,
+    this.previousButtonTap,
+    this.nextButtonTap,
+  });
   @override
   Widget build(BuildContext context) {
     return Row(

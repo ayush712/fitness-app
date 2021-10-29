@@ -11,16 +11,37 @@ enum ActivityType {
   ExtremelyActive
 }
 
-class ActivityDetail {
+enum GoalType { Fatloss, MuscleGain, Maintain }
+
+class Tile {
   IconData icon;
   String header;
   String description;
+  Tile({
+    required this.icon,
+    required this.header,
+    required this.description,
+  });
+}
+
+class ActivityDetail extends Tile {
   ActivityType activityType;
   ActivityDetail(
-      {required this.icon,
-      required this.header,
-      required this.description,
-      required this.activityType});
+      {required icon,
+      required header,
+      required description,
+      required this.activityType})
+      : super(icon: icon, header: header, description: description);
+}
+
+class GoalDetail extends Tile {
+  GoalType goalType;
+  GoalDetail(
+      {required icon,
+      required header,
+      required description,
+      required this.goalType})
+      : super(icon: icon, header: header, description: description);
 }
 
 // Map<ActivityType, ActivityDetail> _activities = {
@@ -98,10 +119,33 @@ Map<ActivityType, ActivityDetail> _activities = {
   )
 };
 
+Map<GoalType, GoalDetail> _goals = {
+  GoalType.Fatloss: GoalDetail(
+    header: "Fatloss",
+    description: "Burn calories, burn fat",
+    icon: Icons.access_time_filled_rounded,
+    goalType: GoalType.Fatloss,
+  ),
+  GoalType.MuscleGain: GoalDetail(
+    header: "Muscle Gain",
+    description: "Gain muscle, gain strength",
+    icon: Icons.access_alarm,
+    goalType: GoalType.MuscleGain,
+  ),
+  GoalType.Maintain: GoalDetail(
+    header: "Maintain",
+    description: "Finding balance",
+    icon: Icons.equalizer,
+    goalType: GoalType.Maintain,
+  )
+};
+
 class UserPreferenceModel extends ChangeNotifier {
   Gender _gender = Gender.Male;
   ActivityType _activity = ActivityType.Sedentary;
+  GoalType _goal = GoalType.Fatloss;
   DateTime _dob = DateTime(DateTime.now().year - 16);
+  bool _allowNotification = true;
 
   setGender(Gender gender) {
     _gender = gender;
@@ -125,12 +169,34 @@ class UserPreferenceModel extends ChangeNotifier {
     return _activities.values.toList();
   }
 
-  getDob() {
+  setGoal(GoalType goal) {
+    _goal = goal;
+    return notifyListeners();
+  }
+
+  GoalDetail getGoal() {
+    return _goals[_goal]!;
+  }
+
+  Iterable<GoalDetail> getAllGoals() {
+    return _goals.values.toList();
+  }
+
+  DateTime getDob() {
     return _dob;
   }
 
   setDob(DateTime value) {
     _dob = value;
     return notifyListeners();
+  }
+
+  setNotification(bool allowNotifcation) {
+    _allowNotification = allowNotifcation;
+    return notifyListeners();
+  }
+
+  bool getNotification() {
+    return _allowNotification;
   }
 }

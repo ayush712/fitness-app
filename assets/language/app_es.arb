@@ -50,6 +50,18 @@
   "dobSelectionDescription": "We will customize your workout routines acording to your age",
   "heightSelectionHeader": "What’s your height?",
   "heightSelectionDescription": "This will help us calculate your calories and offer an appropriate dietary solution",
+  "notificationSelectionHeader": "Do you want yo turn on notification?",
+  "notificationSelectionDescription": "This will help us set your goals more efficiently",
+  "goalSelectionHeader": "What’s your goal?",
+  "goalSelectionDescription": "Select atleast one goal to define your motive for using this app",
+  "fatloassHeader": "Fatloss",
+  "fatlossDescription": "Burn calories, burn fat",
+  "musclegainHeader": "Muscle Gain",
+  "musclegainDescription": "Gain muscle, gain strength",
+  "maintainHeader": "Maintain",
+  "maintainDescription": "Finding balance",
+  "allow": "This will help us set your goals more efficiently",
+  "dontAllow": "Don't Allow",
   "previous": "Back",
   "next": "Continue"
 }

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:provider/provider.dart';
 
-class AnActivityType extends StatelessWidget {
+class ATile extends StatelessWidget {
   final String header;
   final String description;
   final IconData icon;
   final bool isSelected;
   final onTap;
-  const AnActivityType({
+  const ATile({
     required this.header,
     required this.description,
     required this.icon,
