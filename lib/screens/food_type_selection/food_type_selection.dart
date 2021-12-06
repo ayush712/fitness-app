@@ -1,3 +1,4 @@
+import 'package:fithics_mobile/screens/food_item_preference_selection/food_item_preference_selection.dart';
 import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
 import 'package:fithics_mobile/shared/components/image_tile/image_tile.dart';
@@ -50,7 +51,8 @@ class FoodTypeSelection extends StatelessWidget {
                   Expanded(
                     child: ButtonWrapper(
                       onPressed: () {
-                        Navigator.pushNamed(context, GenderSelection.id);
+                        Navigator.pushNamed(
+                            context, FoodItemPreferenceSelection.id);
                       },
                       title: AppLocalizations.of(context)!.next,
                     ),

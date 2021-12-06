@@ -237,6 +237,30 @@ Map<FoodTypeType, FoodType> _foodTypeMap = {
   ),
 };
 
+List<String> _proteinPreferenceList = [
+  'Bread',
+  'Oats',
+  'Nut Butters',
+  'Quinoa',
+  'Broccoli'
+];
+
+List<String> _carbPreferenceList = [
+  'Bread',
+  'Oats',
+  'Nut Butters',
+  'Quinoa',
+  'Broccoli'
+];
+
+List<String> _fatPreferenceList = [
+  'Bread',
+  'Oats',
+  'Nut Butters',
+  'Quinoa',
+  'Broccoli'
+];
+
 class UserPreferenceModel extends ChangeNotifier {
   GenderType _gender = GenderType.Male;
   ActivityType _activity = ActivityType.Sedentary;
@@ -246,6 +270,9 @@ class UserPreferenceModel extends ChangeNotifier {
   List<WorkoutDayType> _workoutDays = [];
   WorkoutTypeType _workoutType = WorkoutTypeType.Gym;
   FoodTypeType _foodType = FoodTypeType.Veg;
+  List<String> _proteinPreferences = [];
+  List<String> _carbPreferences = [];
+  List<String> _fatPreferences = [];
 
   setGender(GenderType gender) {
     _gender = gender;
@@ -341,5 +368,56 @@ class UserPreferenceModel extends ChangeNotifier {
 
   Iterable<FoodType> getAllFoodTypes() {
     return _foodTypeMap.values.toList();
+  }
+
+  setProteinPreferences(String item, bool add) {
+    if (add) {
+      _proteinPreferences.add(item);
+    } else {
+      _proteinPreferences.removeWhere((element) => element == item);
+    }
+    return notifyListeners();
+  }
+
+  List<String> getProteinPreferences() {
+    return _proteinPreferences;
+  }
+
+  Iterable<String> getAllProteinPreferences() {
+    return _proteinPreferenceList;
+  }
+
+  setCarbPreferences(String item, bool add) {
+    if (add) {
+      _carbPreferences.add(item);
+    } else {
+      _carbPreferences.removeWhere((element) => element == item);
+    }
+    return notifyListeners();
+  }
+
+  List<String> getCarbPreferences() {
+    return _carbPreferences;
+  }
+
+  Iterable<String> getAllCarbPreferences() {
+    return _carbPreferenceList;
+  }
+
+  setFatPreferences(String item, bool add) {
+    if (add) {
+      _fatPreferences.add(item);
+    } else {
+      _fatPreferences.removeWhere((element) => element == item);
+    }
+    return notifyListeners();
+  }
+
+  List<String> getFatPreferences() {
+    return _fatPreferences;
+  }
+
+  Iterable<String> getAllFatPreferences() {
+    return _fatPreferenceList;
   }
 }

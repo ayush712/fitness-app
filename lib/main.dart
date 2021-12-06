@@ -1,5 +1,6 @@
 import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
+import 'package:fithics_mobile/screens/food_item_preference_selection/food_item_preference_selection.dart';
 import 'package:fithics_mobile/screens/food_type_selection/food_type_selection.dart';
 import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: Provider.of<LocaleModel>(context).getSupportedLocales(),
-      initialRoute: Splash.id,
+      initialRoute: FoodTypeSelection.id,
       routes: {
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
@@ -60,6 +61,8 @@ class MyApp extends StatelessWidget {
         WorkoutDaysSelection.id: (context) => WorkoutDaysSelection(),
         WorkoutTypeSelection.id: (context) => WorkoutTypeSelection(),
         FoodTypeSelection.id: (context) => FoodTypeSelection(),
+        FoodItemPreferenceSelection.id: (context) =>
+            FoodItemPreferenceSelection(),
       },
     );
   }
