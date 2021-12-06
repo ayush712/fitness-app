@@ -15,6 +15,8 @@ enum WorkoutDayType { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
 
 enum WorkoutTypeType { Gym, Calisthenics, Home }
 
+enum FoodTypeType { Veg, NonVeg, Vegan }
+
 enum GoalType { Fatloss, MuscleGain, Maintain }
 
 class Tile {
@@ -62,6 +64,14 @@ class WorkoutType {
       {required this.title,
       required this.workoutTypeType,
       required this.image});
+}
+
+class FoodType {
+  FoodTypeType foodTypeType;
+  String title;
+  String image;
+  FoodType(
+      {required this.title, required this.foodTypeType, required this.image});
 }
 
 // Map<ActivityType, ActivityDetail> _activities = {
@@ -209,6 +219,24 @@ Map<WorkoutTypeType, WorkoutType> _workoutTypeMap = {
   ),
 };
 
+Map<FoodTypeType, FoodType> _foodTypeMap = {
+  FoodTypeType.Veg: FoodType(
+    title: "Veg",
+    foodTypeType: FoodTypeType.Veg,
+    image: 'assets/images/food_type_veg.png',
+  ),
+  FoodTypeType.NonVeg: FoodType(
+    title: "Nonveg",
+    foodTypeType: FoodTypeType.NonVeg,
+    image: 'assets/images/food_type_nonveg.png',
+  ),
+  FoodTypeType.Vegan: FoodType(
+    title: "Vegan",
+    foodTypeType: FoodTypeType.Vegan,
+    image: 'assets/images/food_type_vegan.png',
+  ),
+};
+
 class UserPreferenceModel extends ChangeNotifier {
   GenderType _gender = GenderType.Male;
   ActivityType _activity = ActivityType.Sedentary;
@@ -217,6 +245,7 @@ class UserPreferenceModel extends ChangeNotifier {
   bool _allowNotification = true;
   List<WorkoutDayType> _workoutDays = [];
   WorkoutTypeType _workoutType = WorkoutTypeType.Gym;
+  FoodTypeType _foodType = FoodTypeType.Veg;
 
   setGender(GenderType gender) {
     _gender = gender;
@@ -299,5 +328,18 @@ class UserPreferenceModel extends ChangeNotifier {
 
   Iterable<WorkoutType> getAllWorkoutTypes() {
     return _workoutTypeMap.values.toList();
+  }
+
+  setFoodType(FoodTypeType foodType) {
+    _foodType = foodType;
+    return notifyListeners();
+  }
+
+  FoodType getFoodType() {
+    return _foodTypeMap[_foodType]!;
+  }
+
+  Iterable<FoodType> getAllFoodTypes() {
+    return _foodTypeMap.values.toList();
   }
 }

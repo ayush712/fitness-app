@@ -1,5 +1,6 @@
 import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
+import 'package:fithics_mobile/screens/food_type_selection/food_type_selection.dart';
 import 'package:fithics_mobile/screens/forgot_password/forgot_password.dart';
 import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/screens/goal_selection/goal_selection.dart';
@@ -57,7 +58,8 @@ class MyApp extends StatelessWidget {
         NotificationSelection.id: (context) => NotificationSelection(),
         GoalSelection.id: (context) => GoalSelection(),
         WorkoutDaysSelection.id: (context) => WorkoutDaysSelection(),
-        WorkoutTypeSelection.id: (context) => WorkoutTypeSelection()
+        WorkoutTypeSelection.id: (context) => WorkoutTypeSelection(),
+        FoodTypeSelection.id: (context) => FoodTypeSelection(),
       },
     );
   }

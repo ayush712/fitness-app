@@ -1,4 +1,4 @@
-import 'package:fithics_mobile/screens/food_type_selection/food_type_selection.dart';
+import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/shared/components/button_wrapper/button_wrapper.dart';
 import 'package:fithics_mobile/shared/components/image_tile/image_tile.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WorkoutTypeSelection extends StatelessWidget {
-  static const String id = 'workout_type_selection';
+class FoodTypeSelection extends StatelessWidget {
+  static const String id = 'Food_type_selection';
   @override
   Widget build(BuildContext context) {
-    WorkoutType _selectedWorkoutType =
-        Provider.of<UserPreferenceModel>(context).getWorkoutType();
+    FoodType _selectedFoodType =
+        Provider.of<UserPreferenceModel>(context).getFoodType();
 
     return Scaffold(
       body: SafeArea(
@@ -25,7 +25,7 @@ class WorkoutTypeSelection extends StatelessWidget {
                 height: kSpaceBetweenTwoFields * 4,
               ),
               Text(
-                AppLocalizations.of(context)!.workoutTypeSelectionHeader,
+                AppLocalizations.of(context)!.foodTypeSelectionHeader,
                 textAlign: TextAlign.left,
                 style: getBottomSheetHeaderStyle(
                     Provider.of<ThemeModel>(context).currentTheme),
@@ -38,8 +38,8 @@ class WorkoutTypeSelection extends StatelessWidget {
                 spacing: kSpaceBetweenTwoFields,
                 runSpacing: kSpaceBetweenTwoFields,
                 children: [
-                  ...getWorkoutTypeWidgets(
-                      context, _selectedWorkoutType.workoutTypeType),
+                  ...getFoodTypeWidgets(
+                      context, _selectedFoodType.foodTypeType),
                 ],
               ),
               SizedBox(
@@ -50,7 +50,7 @@ class WorkoutTypeSelection extends StatelessWidget {
                   Expanded(
                     child: ButtonWrapper(
                       onPressed: () {
-                        Navigator.pushNamed(context, FoodTypeSelection.id);
+                        Navigator.pushNamed(context, GenderSelection.id);
                       },
                       title: AppLocalizations.of(context)!.next,
                     ),
@@ -67,20 +67,20 @@ class WorkoutTypeSelection extends StatelessWidget {
     );
   }
 
-  Iterable<Container> getWorkoutTypeWidgets(
-      BuildContext context, WorkoutTypeType selectedWorkoutType) {
+  Iterable<Container> getFoodTypeWidgets(
+      BuildContext context, FoodTypeType selectedFoodType) {
     return Provider.of<UserPreferenceModel>(
       context,
-    ).getAllWorkoutTypes().map<Container>((workoutType) {
+    ).getAllFoodTypes().map<Container>((foodType) {
       return Container(
         child: ImageTile(
-          title: workoutType.title,
-          isSelected: workoutType.workoutTypeType == selectedWorkoutType,
-          image: workoutType.image,
+          title: foodType.title,
+          isSelected: foodType.foodTypeType == selectedFoodType,
+          image: foodType.image,
           onTap: () {
             Provider.of<UserPreferenceModel>(context, listen: false)
-                .setWorkoutType(
-              workoutType.workoutTypeType,
+                .setFoodType(
+              foodType.foodTypeType,
             );
           },
         ),
