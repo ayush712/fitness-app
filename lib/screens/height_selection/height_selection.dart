@@ -1,3 +1,4 @@
+import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
 import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
@@ -38,9 +39,6 @@ class HeightSelection extends StatelessWidget {
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
                 ),
-                SizedBox(
-                  height: kSpaceBetweenTwoFields * 2,
-                ),
                 Container(
                   height: MediaQuery.of(context).size.height -
                       (kSpaceBetweenTwoFields * 25),
@@ -80,7 +78,7 @@ class HeightSelection extends StatelessWidget {
                   nextButtonTap: () {
                     Navigator.pushNamed(
                       context,
-                      NotificationSelection.id,
+                      ActivityLevelSelection.id,
                     );
                   },
                 ),

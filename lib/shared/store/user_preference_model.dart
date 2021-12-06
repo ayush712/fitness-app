@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-enum Gender { Male, Female, NonBinary }
+enum GenderType { Male, Female, NonBinary }
 enum ActivityType {
   Sedentary,
   LightActivity,
@@ -10,6 +10,10 @@ enum ActivityType {
   VeryActive,
   ExtremelyActive
 }
+
+enum WorkoutDayType { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
+
+enum WorkoutTypeType { Gym, Calisthenics, Home }
 
 enum GoalType { Fatloss, MuscleGain, Maintain }
 
@@ -42,6 +46,22 @@ class GoalDetail extends Tile {
       required description,
       required this.goalType})
       : super(icon: icon, header: header, description: description);
+}
+
+class WorkoutDay {
+  WorkoutDayType workoutDayType;
+  String title;
+  WorkoutDay({required this.title, required this.workoutDayType});
+}
+
+class WorkoutType {
+  WorkoutTypeType workoutTypeType;
+  String title;
+  String image;
+  WorkoutType(
+      {required this.title,
+      required this.workoutTypeType,
+      required this.image});
 }
 
 // Map<ActivityType, ActivityDetail> _activities = {
@@ -86,7 +106,7 @@ class GoalDetail extends Tile {
 //   )
 // };
 
-Map<ActivityType, ActivityDetail> _activities = {
+Map<ActivityType, ActivityDetail> _activityMap = {
   ActivityType.Sedentary: ActivityDetail(
     header: "Sedentary",
     description: "Honestly, I’m not active at all.",
@@ -119,7 +139,7 @@ Map<ActivityType, ActivityDetail> _activities = {
   )
 };
 
-Map<GoalType, GoalDetail> _goals = {
+Map<GoalType, GoalDetail> _goalMap = {
   GoalType.Fatloss: GoalDetail(
     header: "Fatloss",
     description: "Burn calories, burn fat",
@@ -140,19 +160,70 @@ Map<GoalType, GoalDetail> _goals = {
   )
 };
 
+Map<WorkoutDayType, WorkoutDay> _workoutDayMap = {
+  WorkoutDayType.Sun: WorkoutDay(
+    title: "Sun",
+    workoutDayType: WorkoutDayType.Sun,
+  ),
+  WorkoutDayType.Mon: WorkoutDay(
+    title: "Mon",
+    workoutDayType: WorkoutDayType.Mon,
+  ),
+  WorkoutDayType.Tue: WorkoutDay(
+    title: "Tue",
+    workoutDayType: WorkoutDayType.Tue,
+  ),
+  WorkoutDayType.Wed: WorkoutDay(
+    title: "Wed",
+    workoutDayType: WorkoutDayType.Wed,
+  ),
+  WorkoutDayType.Thu: WorkoutDay(
+    title: "Thu",
+    workoutDayType: WorkoutDayType.Thu,
+  ),
+  WorkoutDayType.Fri: WorkoutDay(
+    title: "Fri",
+    workoutDayType: WorkoutDayType.Fri,
+  ),
+  WorkoutDayType.Sat: WorkoutDay(
+    title: "Sat",
+    workoutDayType: WorkoutDayType.Sat,
+  ),
+};
+
+Map<WorkoutTypeType, WorkoutType> _workoutTypeMap = {
+  WorkoutTypeType.Gym: WorkoutType(
+    title: "Gym",
+    workoutTypeType: WorkoutTypeType.Gym,
+    image: 'assets/images/workout_type_gym.png',
+  ),
+  WorkoutTypeType.Calisthenics: WorkoutType(
+    title: "Calisthenics",
+    workoutTypeType: WorkoutTypeType.Calisthenics,
+    image: 'assets/images/workout_type_calisthenics.png',
+  ),
+  WorkoutTypeType.Home: WorkoutType(
+    title: "Home",
+    workoutTypeType: WorkoutTypeType.Home,
+    image: 'assets/images/workout_type_home.png',
+  ),
+};
+
 class UserPreferenceModel extends ChangeNotifier {
-  Gender _gender = Gender.Male;
+  GenderType _gender = GenderType.Male;
   ActivityType _activity = ActivityType.Sedentary;
   GoalType _goal = GoalType.Fatloss;
   DateTime _dob = DateTime(DateTime.now().year - 16);
   bool _allowNotification = true;
+  List<WorkoutDayType> _workoutDays = [];
+  WorkoutTypeType _workoutType = WorkoutTypeType.Gym;
 
-  setGender(Gender gender) {
+  setGender(GenderType gender) {
     _gender = gender;
     return notifyListeners();
   }
 
-  Gender getGender() {
+  GenderType getGender() {
     return _gender;
   }
 
@@ -162,11 +233,11 @@ class UserPreferenceModel extends ChangeNotifier {
   }
 
   ActivityDetail getActivity() {
-    return _activities[_activity]!;
+    return _activityMap[_activity]!;
   }
 
   Iterable<ActivityDetail> getAllActivities() {
-    return _activities.values.toList();
+    return _activityMap.values.toList();
   }
 
   setGoal(GoalType goal) {
@@ -175,11 +246,11 @@ class UserPreferenceModel extends ChangeNotifier {
   }
 
   GoalDetail getGoal() {
-    return _goals[_goal]!;
+    return _goalMap[_goal]!;
   }
 
   Iterable<GoalDetail> getAllGoals() {
-    return _goals.values.toList();
+    return _goalMap.values.toList();
   }
 
   DateTime getDob() {
@@ -198,5 +269,35 @@ class UserPreferenceModel extends ChangeNotifier {
 
   bool getNotification() {
     return _allowNotification;
+  }
+
+  setWorkoutDays(WorkoutDayType workoutDay, bool add) {
+    if (add) {
+      _workoutDays.add(workoutDay);
+    } else {
+      _workoutDays.removeWhere((element) => element == workoutDay);
+    }
+    return notifyListeners();
+  }
+
+  List<WorkoutDayType> getWorkoutDays() {
+    return _workoutDays;
+  }
+
+  Iterable<WorkoutDay> getAllWorkoutDays() {
+    return _workoutDayMap.values.toList();
+  }
+
+  setWorkoutType(WorkoutTypeType workoutType) {
+    _workoutType = workoutType;
+    return notifyListeners();
+  }
+
+  WorkoutType getWorkoutType() {
+    return _workoutTypeMap[_workoutType]!;
+  }
+
+  Iterable<WorkoutType> getAllWorkoutTypes() {
+    return _workoutTypeMap.values.toList();
   }
 }

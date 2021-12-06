@@ -40,9 +40,6 @@ class DateOfBirthSelection extends StatelessWidget {
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
                 ),
-                SizedBox(
-                  height: kSpaceBetweenTwoFields * 2,
-                ),
                 Container(
                   height: MediaQuery.of(context).size.height -
                       (kSpaceBetweenTwoFields * 28),
