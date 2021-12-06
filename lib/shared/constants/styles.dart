@@ -76,6 +76,13 @@ TextStyle getWidgetSubHeaderStyle(ThemeData theme) {
   );
 }
 
+TextStyle getBottomSheetHeaderStyle(ThemeData theme) {
+  return TextStyle(
+    color: theme.secondaryHeaderColor,
+    fontSize: kXSmallFontSize,
+  );
+}
+
 TextStyle getLinkStyle(ThemeData theme) {
   return TextStyle(color: theme.primaryColor, fontSize: kXSmallFontSize);
 }

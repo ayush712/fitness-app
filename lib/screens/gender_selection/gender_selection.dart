@@ -15,7 +15,7 @@ class GenderSelection extends StatelessWidget {
   static const String id = 'gender_selection';
   @override
   Widget build(BuildContext context) {
-    Gender _selectedGender =
+    GenderType _selectedGender =
         Provider.of<UserPreferenceModel>(context).getGender();
     return Scaffold(
       body: SafeArea(
@@ -56,11 +56,11 @@ class GenderSelection extends StatelessWidget {
                             onTap: () {
                               Provider.of<UserPreferenceModel>(context,
                                       listen: false)
-                                  .setGender(Gender.Male);
+                                  .setGender(GenderType.Male);
                             },
                             text: AppLocalizations.of(context)!.male,
                             imagePath: 'assets/images/gender_male.png',
-                            isSelected: _selectedGender == Gender.Male,
+                            isSelected: _selectedGender == GenderType.Male,
                           ),
                         ),
                         SizedBox(
@@ -71,11 +71,11 @@ class GenderSelection extends StatelessWidget {
                             onTap: () {
                               Provider.of<UserPreferenceModel>(context,
                                       listen: false)
-                                  .setGender(Gender.Female);
+                                  .setGender(GenderType.Female);
                             },
                             text: AppLocalizations.of(context)!.female,
                             imagePath: 'assets/images/gender_female.png',
-                            isSelected: _selectedGender == Gender.Female,
+                            isSelected: _selectedGender == GenderType.Female,
                           ),
                         ),
                       ],

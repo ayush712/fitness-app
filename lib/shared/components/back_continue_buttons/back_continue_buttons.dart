@@ -7,12 +7,15 @@ class BackContinueButtons extends StatelessWidget {
   final nextButtonTap;
   final bool showPreviousButton;
   final bool showNextButton;
-  BackContinueButtons({
-    this.showPreviousButton = true,
-    this.showNextButton = true,
-    this.previousButtonTap,
-    this.nextButtonTap,
-  });
+  String? previousButtonTitle;
+  String? nextButtonTitle;
+  BackContinueButtons(
+      {this.showPreviousButton = true,
+      this.showNextButton = true,
+      this.previousButtonTap,
+      this.nextButtonTap,
+      this.previousButtonTitle = '',
+      this.nextButtonTitle = ''});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,13 +27,16 @@ class BackContinueButtons extends StatelessWidget {
             ? ButtonWrapper(
                 buttonType: ButtonType.NoBorderButton,
                 onPressed: previousButtonTap,
-                title: AppLocalizations.of(context)!.previous)
+                title: previousButtonTitle?.isNotEmpty == true
+                    ? previousButtonTitle!
+                    : AppLocalizations.of(context)!.previous)
             : Container(),
         showNextButton
             ? ButtonWrapper(
                 onPressed: nextButtonTap,
-                title: AppLocalizations.of(context)!.next,
-              )
+                title: nextButtonTitle?.isNotEmpty == true
+                    ? nextButtonTitle!
+                    : AppLocalizations.of(context)!.next)
             : Container(),
       ],
     );

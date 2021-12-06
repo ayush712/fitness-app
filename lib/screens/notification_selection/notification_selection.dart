@@ -1,6 +1,9 @@
+import 'package:fithics_mobile/screens/activity_level_selection/activity_level_selection.dart';
 import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
+import 'package:fithics_mobile/screens/gender_selection/gender_selection.dart';
 import 'package:fithics_mobile/screens/goal_selection/goal_selection.dart';
 import 'package:fithics_mobile/screens/height_selection/height_selection.dart';
+import 'package:fithics_mobile/screens/workout_days_selection/workout_days_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
@@ -50,11 +53,14 @@ class NotificationSelection extends StatelessWidget {
                 children: [
                   BackContinueButtons(
                     previousButtonTap: () {
-                      Navigator.pushNamed(context, HeightSelection.id);
+                      Navigator.pushNamed(context, ActivityLevelSelection.id);
                     },
                     nextButtonTap: () {
                       Navigator.pushNamed(context, GoalSelection.id);
                     },
+                    previousButtonTitle:
+                        AppLocalizations.of(context)!.dontAllow,
+                    nextButtonTitle: AppLocalizations.of(context)!.allow,
                   ),
                   SizedBox(height: kSpaceBetweenTwoFields * 2),
                 ],

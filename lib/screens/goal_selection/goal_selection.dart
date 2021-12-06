@@ -1,4 +1,6 @@
 import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
+import 'package:fithics_mobile/screens/workout_days_selection/workout_days_selection.dart';
+import 'package:fithics_mobile/screens/workout_type_selection/workout_type_selection.dart';
 import 'package:fithics_mobile/shared/components/a_tile/a_tile.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
@@ -55,7 +57,9 @@ class GoalSelection extends StatelessWidget {
                   previousButtonTap: () {
                     Navigator.pushNamed(context, NotificationSelection.id);
                   },
-                  nextButtonTap: () {},
+                  nextButtonTap: () {
+                    Navigator.pushNamed(context, WorkoutDaysSelection.id);
+                  },
                 ),
                 SizedBox(
                   height: kSpaceBetweenTwoFields * 2,

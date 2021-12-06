@@ -1,21 +1,20 @@
-import 'package:fithics_mobile/screens/notification_selection/notification_selection.dart';
-import 'package:fithics_mobile/shared/components/a_tile/a_tile.dart';
-import 'package:fithics_mobile/screens/date_of_birth_selection/date_of_birth_selection.dart';
+import 'package:fithics_mobile/screens/goal_selection/goal_selection.dart';
+import 'package:fithics_mobile/screens/workout_type_selection/workout_type_selection.dart';
 import 'package:fithics_mobile/shared/components/back_continue_buttons/back_continue_buttons.dart';
+import 'package:fithics_mobile/shared/components/text_tile/text_tile.dart';
 import 'package:fithics_mobile/shared/constants/styles.dart';
 import 'package:fithics_mobile/shared/store/theme_model.dart';
 import 'package:fithics_mobile/shared/store/user_preference_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-class ActivityLevelSelection extends StatelessWidget {
-  static const String id = 'activity_level_selection';
+class WorkoutDaysSelection extends StatelessWidget {
+  static const String id = 'workout_days_selection';
   @override
   Widget build(BuildContext context) {
-    ActivityDetail _selectedActivity =
-        Provider.of<UserPreferenceModel>(context).getActivity();
+    List<WorkoutDayType> _selectedWorkoutDays =
+        Provider.of<UserPreferenceModel>(context).getWorkoutDays();
 
     return Scaffold(
       body: SafeArea(
@@ -28,7 +27,7 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields * 4,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.activitySelectionHeader,
+                  AppLocalizations.of(context)!.workoutDaysHeader,
                   textAlign: TextAlign.center,
                   style: getHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -37,7 +36,7 @@ class ActivityLevelSelection extends StatelessWidget {
                   height: kSpaceBetweenTwoFields,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.activitySelectionDescription,
+                  AppLocalizations.of(context)!.workoutDaysDescription(3),
                   textAlign: TextAlign.center,
                   style: getSubHeaderStyle(
                       Provider.of<ThemeModel>(context).currentTheme),
@@ -45,10 +44,12 @@ class ActivityLevelSelection extends StatelessWidget {
                 SizedBox(
                   height: kSpaceBetweenTwoFields * 4,
                 ),
-                Column(
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: kSpaceBetweenTwoFields,
+                  runSpacing: kSpaceBetweenTwoFields,
                   children: [
-                    ...getActivityWidgets(
-                        context, _selectedActivity.activityType),
+                    ...getWorkoutDaysWidgets(context, _selectedWorkoutDays),
                   ],
                 ),
                 SizedBox(
@@ -56,10 +57,10 @@ class ActivityLevelSelection extends StatelessWidget {
                 ),
                 BackContinueButtons(
                   previousButtonTap: () {
-                    Navigator.pushNamed(context, DateOfBirthSelection.id);
+                    Navigator.pushNamed(context, GoalSelection.id);
                   },
                   nextButtonTap: () {
-                    Navigator.pushNamed(context, NotificationSelection.id);
+                    Navigator.pushNamed(context, WorkoutTypeSelection.id);
                   },
                 ),
                 SizedBox(
@@ -73,30 +74,21 @@ class ActivityLevelSelection extends StatelessWidget {
     );
   }
 
-  Iterable<Container> getActivityWidgets(
-      BuildContext context, ActivityType selectedActivityType) {
+  Iterable<Container> getWorkoutDaysWidgets(
+      BuildContext context, List<WorkoutDayType> selectedWorkoutDays) {
     return Provider.of<UserPreferenceModel>(
       context,
-    ).getAllActivities().map<Container>((activity) {
+    ).getAllWorkoutDays().map<Container>((workoutDay) {
+      bool isSelected = selectedWorkoutDays
+          .any((element) => element == workoutDay.workoutDayType);
       return Container(
-        child: Column(
-          children: [
-            ATile(
-              header: activity.header,
-              description: activity.description,
-              icon: activity.icon,
-              isSelected: activity.activityType == selectedActivityType,
-              onTap: () {
-                Provider.of<UserPreferenceModel>(context, listen: false)
-                    .setActivity(
-                  activity.activityType,
-                );
-              },
-            ),
-            SizedBox(
-              height: kSpaceBetweenTwoFields,
-            ),
-          ],
+        child: TextTile(
+          title: workoutDay.title.toString(),
+          isSelected: isSelected,
+          onTap: () {
+            Provider.of<UserPreferenceModel>(context, listen: false)
+                .setWorkoutDays(workoutDay.workoutDayType, !isSelected);
+          },
         ),
       );
     });
